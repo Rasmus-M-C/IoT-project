@@ -1,0 +1,613 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0": {
+      "M2Mqtt/4.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/M2Mqtt.Net.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net45/M2Mqtt.Net.dll": {
+            "related": ".pdb"
+          }
+        }
+      },
+      "MQTTnet/4.3.3.952": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/MQTTnet.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/MQTTnet.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "SenseHatNet/0.0.7": {
+        "type": "package",
+        "dependencies": {
+          "SixLabors.ImageSharp.Drawing": "1.0.0-beta0005",
+          "System.Collections.Immutable": "1.7.1",
+          "System.Reactive": "4.4.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Sense.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Sense.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux-arm/native/libRTIMUExt.so": {
+            "assetType": "native",
+            "rid": "linux-arm"
+          },
+          "runtimes/linux-arm64/native/libRTIMUExt.so": {
+            "assetType": "native",
+            "rid": "linux-arm64"
+          }
+        }
+      },
+      "SixLabors.Core/1.0.0-beta0006": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.5.0",
+          "System.Memory": "4.5.1",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.1"
+        },
+        "compile": {
+          "lib/netcoreapp2.0/SixLabors.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/SixLabors.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "SixLabors.Fonts/1.0.0-beta0007": {
+        "type": "package",
+        "dependencies": {
+          "SixLabors.Core": "1.0.0-beta0006"
+        },
+        "compile": {
+          "lib/netstandard2.0/SixLabors.Fonts.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/SixLabors.Fonts.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "SixLabors.ImageSharp/1.0.0-beta0005": {
+        "type": "package",
+        "dependencies": {
+          "SixLabors.Core": "1.0.0-beta0006",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.1"
+        },
+        "compile": {
+          "lib/netcoreapp2.1/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "SixLabors.ImageSharp.Drawing/1.0.0-beta0005": {
+        "type": "package",
+        "dependencies": {
+          "SixLabors.Fonts": "1.0.0-beta0007",
+          "SixLabors.ImageSharp": "1.0.0-beta0005",
+          "SixLabors.Shapes": "1.0.0-beta0007"
+        },
+        "compile": {
+          "lib/netstandard2.0/SixLabors.ImageSharp.Drawing.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/SixLabors.ImageSharp.Drawing.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "SixLabors.Shapes/1.0.0-beta0007": {
+        "type": "package",
+        "dependencies": {
+          "SixLabors.Core": "1.0.0-beta0006"
+        },
+        "compile": {
+          "lib/netstandard2.0/SixLabors.Shapes.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/SixLabors.Shapes.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Buffers/4.5.0": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/_._": {}
+        }
+      },
+      "System.Collections.Immutable/1.7.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/System.Collections.Immutable.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Collections.Immutable.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Memory/4.5.1": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.1/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/_._": {}
+        }
+      },
+      "System.Reactive/4.4.1": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.0/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/_._": {}
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.0/System.Reactive.targets": {}
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/4.5.1": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MQTTServer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "M2Mqtt": "4.3.0",
+          "MQTTnet": "4.3.3.952"
+        },
+        "compile": {
+          "bin/placeholder/MQTTServer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MQTTServer.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "M2Mqtt/4.3.0": {
+      "sha512": "2A1uM20uxuovQKPA0dkZUqD9gUpIMaX7KxdLiVM7IEXdPRL709hGuudHnvlDxm2/6b2LcOjshrYGVG9vdpipag==",
+      "type": "package",
+      "path": "m2mqtt/4.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net39-cf/DeployFileList.txt",
+        "lib/net39-cf/M2Mqtt.NetCf39.dll",
+        "lib/net39-cf/M2Mqtt.NetCf39.pdb",
+        "lib/net45/M2Mqtt.Net.dll",
+        "lib/net45/M2Mqtt.Net.pdb",
+        "lib/netmf42/M2Mqtt.NetMf.dll",
+        "lib/netmf42/M2Mqtt.NetMf.pdb",
+        "lib/netmf42/be/M2Mqtt.NetMf.pdb",
+        "lib/netmf42/be/M2Mqtt.NetMf.pdbx",
+        "lib/netmf42/be/M2Mqtt.NetMf.pe",
+        "lib/netmf42/le/M2Mqtt.NetMf.pdb",
+        "lib/netmf42/le/M2Mqtt.NetMf.pdbx",
+        "lib/netmf42/le/M2Mqtt.NetMf.pe",
+        "lib/netmf43/M2Mqtt.NetMf.dll",
+        "lib/netmf43/M2Mqtt.NetMf.pdb",
+        "lib/netmf43/be/M2Mqtt.NetMf.pdb",
+        "lib/netmf43/be/M2Mqtt.NetMf.pdbx",
+        "lib/netmf43/be/M2Mqtt.NetMf.pe",
+        "lib/netmf43/le/M2Mqtt.NetMf.pdb",
+        "lib/netmf43/le/M2Mqtt.NetMf.pdbx",
+        "lib/netmf43/le/M2Mqtt.NetMf.pe",
+        "lib/win81/M2Mqtt.WinRT.dll",
+        "lib/win81/M2Mqtt.WinRT.pdb",
+        "lib/win81/M2Mqtt.WinRT.pri",
+        "lib/wpa81/M2Mqtt.WinRT.dll",
+        "lib/wpa81/M2Mqtt.WinRT.pdb",
+        "lib/wpa81/M2Mqtt.WinRT.pri",
+        "m2mqtt.4.3.0.nupkg.sha512",
+        "m2mqtt.nuspec"
+      ]
+    },
+    "MQTTnet/4.3.3.952": {
+      "sha512": "6AFOGkdnqzIfvaPbTnPLYvBibBdGfJlTTWonIZp+VHpRy6fEl+KT9Z1AG1/4AaDAw5TJ0WpqCmrV9TVUWkLffg==",
+      "type": "package",
+      "path": "mqttnet/4.3.3.952",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net452/MQTTnet.dll",
+        "lib/net452/MQTTnet.xml",
+        "lib/net461/MQTTnet.dll",
+        "lib/net461/MQTTnet.xml",
+        "lib/net48/MQTTnet.dll",
+        "lib/net48/MQTTnet.xml",
+        "lib/net5.0/MQTTnet.dll",
+        "lib/net5.0/MQTTnet.xml",
+        "lib/net6.0/MQTTnet.dll",
+        "lib/net6.0/MQTTnet.xml",
+        "lib/net7.0/MQTTnet.dll",
+        "lib/net7.0/MQTTnet.xml",
+        "lib/netcoreapp3.1/MQTTnet.dll",
+        "lib/netcoreapp3.1/MQTTnet.xml",
+        "lib/netstandard1.3/MQTTnet.dll",
+        "lib/netstandard1.3/MQTTnet.xml",
+        "lib/netstandard2.0/MQTTnet.dll",
+        "lib/netstandard2.0/MQTTnet.xml",
+        "lib/netstandard2.1/MQTTnet.dll",
+        "lib/netstandard2.1/MQTTnet.xml",
+        "lib/uap10.0.10240/MQTTnet.dll",
+        "lib/uap10.0.10240/MQTTnet.pri",
+        "lib/uap10.0.10240/MQTTnet.xml",
+        "mqttnet.4.3.3.952.nupkg.sha512",
+        "mqttnet.nuspec",
+        "nuget.png"
+      ]
+    },
+    "SenseHatNet/0.0.7": {
+      "sha512": "WCKkMPN3grE5sbzC3lxY+fQbQRIhmR7s9yGXCfowGckj0CIuPtRUE7liFGLJlhzOf8/7MdMV1iV5UZXddzjosQ==",
+      "type": "package",
+      "path": "sensehatnet/0.0.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Sense.dll",
+        "runtimes/linux-arm/native/libRTIMUExt.so",
+        "runtimes/linux-arm64/native/libRTIMUExt.so",
+        "sensehatnet.0.0.7.nupkg.sha512",
+        "sensehatnet.nuspec"
+      ]
+    },
+    "SixLabors.Core/1.0.0-beta0006": {
+      "sha512": "Xv2bOML08se0GWIQJVaIpVV168KQHLYQyESdk5Kv5Sgw0iuZShq6orBXY5AGRwQAyPubGXUVPj/AHK12DI+DxQ==",
+      "type": "package",
+      "path": "sixlabors.core/1.0.0-beta0006",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp2.0/SixLabors.Core.dll",
+        "lib/netcoreapp2.0/SixLabors.Core.xml",
+        "lib/netstandard1.1/SixLabors.Core.dll",
+        "lib/netstandard1.1/SixLabors.Core.xml",
+        "sixlabors.core.1.0.0-beta0006.nupkg.sha512",
+        "sixlabors.core.nuspec"
+      ]
+    },
+    "SixLabors.Fonts/1.0.0-beta0007": {
+      "sha512": "Pl2ggrDDcyIXVhxqity3BWJoId4fKfVhZCevJWw2WTNCLsYhDDYLRmUdLx+2KvAd4YZO1y7d8qWlIrouz7utRg==",
+      "type": "package",
+      "path": "sixlabors.fonts/1.0.0-beta0007",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard1.1/SixLabors.Fonts.dll",
+        "lib/netstandard1.1/SixLabors.Fonts.xml",
+        "lib/netstandard1.3/SixLabors.Fonts.dll",
+        "lib/netstandard1.3/SixLabors.Fonts.xml",
+        "lib/netstandard2.0/SixLabors.Fonts.dll",
+        "lib/netstandard2.0/SixLabors.Fonts.xml",
+        "sixlabors.fonts.1.0.0-beta0007.nupkg.sha512",
+        "sixlabors.fonts.nuspec"
+      ]
+    },
+    "SixLabors.ImageSharp/1.0.0-beta0005": {
+      "sha512": "mhB3ulgr51tKuLRLC/xBgNSDv6qsAsehfwt/aj1OuKlLWu4oXUl2V6HdLKxqQftigkQthQVujI0gMLH6/o7zNg==",
+      "type": "package",
+      "path": "sixlabors.imagesharp/1.0.0-beta0005",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp2.1/SixLabors.ImageSharp.dll",
+        "lib/netcoreapp2.1/SixLabors.ImageSharp.xml",
+        "lib/netstandard1.1/SixLabors.ImageSharp.dll",
+        "lib/netstandard1.1/SixLabors.ImageSharp.xml",
+        "lib/netstandard1.3/SixLabors.ImageSharp.dll",
+        "lib/netstandard1.3/SixLabors.ImageSharp.xml",
+        "lib/netstandard2.0/SixLabors.ImageSharp.dll",
+        "lib/netstandard2.0/SixLabors.ImageSharp.xml",
+        "sixlabors.imagesharp.1.0.0-beta0005.nupkg.sha512",
+        "sixlabors.imagesharp.nuspec"
+      ]
+    },
+    "SixLabors.ImageSharp.Drawing/1.0.0-beta0005": {
+      "sha512": "enut3u1PVCehRkIVXBZWcFylANGRsMAYcXhMiCYbS6VQJoSjOGE4oerm5FN5DTZgnaNrmmYMWvzZqA0GqitVbQ==",
+      "type": "package",
+      "path": "sixlabors.imagesharp.drawing/1.0.0-beta0005",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard1.1/SixLabors.ImageSharp.Drawing.dll",
+        "lib/netstandard1.1/SixLabors.ImageSharp.Drawing.xml",
+        "lib/netstandard2.0/SixLabors.ImageSharp.Drawing.dll",
+        "lib/netstandard2.0/SixLabors.ImageSharp.Drawing.xml",
+        "sixlabors.imagesharp.drawing.1.0.0-beta0005.nupkg.sha512",
+        "sixlabors.imagesharp.drawing.nuspec"
+      ]
+    },
+    "SixLabors.Shapes/1.0.0-beta0007": {
+      "sha512": "AArk7k8HKOz3kLWeKz1FXUF/+aumgn3CfTfwNACM2uP/iFZFFeLiGDuu7uAV9JJVvEeA1rTHYwA4+kiedJVjhg==",
+      "type": "package",
+      "path": "sixlabors.shapes/1.0.0-beta0007",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard1.1/SixLabors.Shapes.dll",
+        "lib/netstandard1.1/SixLabors.Shapes.xml",
+        "lib/netstandard2.0/SixLabors.Shapes.dll",
+        "lib/netstandard2.0/SixLabors.Shapes.xml",
+        "sixlabors.shapes.1.0.0-beta0007.nupkg.sha512",
+        "sixlabors.shapes.nuspec"
+      ]
+    },
+    "System.Buffers/4.5.0": {
+      "sha512": "pL2ChpaRRWI/p4LXyy4RgeWlYF2sgfj/pnVMvBqwNFr5cXg7CXNnWZWxrOONLg8VGdFB8oB+EG2Qw4MLgTOe+A==",
+      "type": "package",
+      "path": "system.buffers/4.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.1/System.Buffers.dll",
+        "lib/netstandard1.1/System.Buffers.xml",
+        "lib/netstandard2.0/System.Buffers.dll",
+        "lib/netstandard2.0/System.Buffers.xml",
+        "lib/uap10.0.16299/_._",
+        "ref/net45/System.Buffers.dll",
+        "ref/net45/System.Buffers.xml",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard1.1/System.Buffers.dll",
+        "ref/netstandard1.1/System.Buffers.xml",
+        "ref/netstandard2.0/System.Buffers.dll",
+        "ref/netstandard2.0/System.Buffers.xml",
+        "ref/uap10.0.16299/_._",
+        "system.buffers.4.5.0.nupkg.sha512",
+        "system.buffers.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Collections.Immutable/1.7.1": {
+      "sha512": "B43Zsz5EfMwyEbnObwRxW5u85fzJma3lrDeGcSAV1qkhSRTNY5uXAByTn9h9ddNdhM+4/YoLc/CI43umjwIl9Q==",
+      "type": "package",
+      "path": "system.collections.immutable/1.7.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Collections.Immutable.dll",
+        "lib/net461/System.Collections.Immutable.xml",
+        "lib/netstandard1.0/System.Collections.Immutable.dll",
+        "lib/netstandard1.0/System.Collections.Immutable.xml",
+        "lib/netstandard1.3/System.Collections.Immutable.dll",
+        "lib/netstandard1.3/System.Collections.Immutable.xml",
+        "lib/netstandard2.0/System.Collections.Immutable.dll",
+        "lib/netstandard2.0/System.Collections.Immutable.xml",
+        "lib/portable-net45+win8+wp8+wpa81/System.Collections.Immutable.dll",
+        "lib/portable-net45+win8+wp8+wpa81/System.Collections.Immutable.xml",
+        "system.collections.immutable.1.7.1.nupkg.sha512",
+        "system.collections.immutable.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Memory/4.5.1": {
+      "sha512": "sDJYJpGtTgx+23Ayu5euxG5mAXWdkDb4+b0rD0Cab0M1oQS9H0HXGPriKcqpXuiJDTV7fTp/d+fMDJmnr6sNvA==",
+      "type": "package",
+      "path": "system.memory/4.5.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard1.1/System.Memory.dll",
+        "lib/netstandard1.1/System.Memory.xml",
+        "lib/netstandard2.0/System.Memory.dll",
+        "lib/netstandard2.0/System.Memory.xml",
+        "ref/netcoreapp2.1/_._",
+        "ref/netstandard1.1/System.Memory.dll",
+        "ref/netstandard1.1/System.Memory.xml",
+        "ref/netstandard2.0/System.Memory.dll",
+        "ref/netstandard2.0/System.Memory.xml",
+        "system.memory.4.5.1.nupkg.sha512",
+        "system.memory.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Reactive/4.4.1": {
+      "sha512": "iSTPeWR9HJhGoNV4WhVlvofuiTjpok1i4E3LPgMdbMqf3jKhFlT9HAlO32lb52NLppWC/4dZQFfUzTytvyXBmw==",
+      "type": "package",
+      "path": "system.reactive/4.4.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/netcoreapp3.0/System.Reactive.dll",
+        "build/netcoreapp3.0/System.Reactive.targets",
+        "build/netcoreapp3.0/System.Reactive.xml",
+        "buildTransitive/netcoreapp3.0/System.Reactive.targets",
+        "lib/net46/System.Reactive.dll",
+        "lib/net46/System.Reactive.xml",
+        "lib/netcoreapp3.0/_._",
+        "lib/netstandard2.0/System.Reactive.dll",
+        "lib/netstandard2.0/System.Reactive.xml",
+        "lib/uap10.0.16299/System.Reactive.dll",
+        "lib/uap10.0.16299/System.Reactive.pri",
+        "lib/uap10.0.16299/System.Reactive.xml",
+        "lib/uap10.0/System.Reactive.dll",
+        "lib/uap10.0/System.Reactive.pri",
+        "lib/uap10.0/System.Reactive.xml",
+        "system.reactive.4.4.1.nupkg.sha512",
+        "system.reactive.nuspec"
+      ]
+    },
+    "System.Runtime.CompilerServices.Unsafe/4.5.1": {
+      "sha512": "Zh8t8oqolRaFa9vmOZfdQm/qKejdqz0J9kr7o2Fu0vPeoH3BL1EOXipKWwkWtLT1JPzjByrF19fGuFlNbmPpiw==",
+      "type": "package",
+      "path": "system.runtime.compilerservices.unsafe/4.5.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
+        "system.runtime.compilerservices.unsafe.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "MQTTServer/1.0.0": {
+      "type": "project",
+      "path": "../MQTT/MQTT.csproj",
+      "msbuildProject": "../MQTT/MQTT.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0": [
+      "MQTTServer >= 1.0.0",
+      "MQTTnet >= 4.3.3.952",
+      "SenseHatNet >= 0.0.7"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\rasmu\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\rasmu\\RiderProjects\\Sensor\\Sensor\\Sensor.csproj",
+      "projectName": "RaspberryPI",
+      "projectPath": "C:\\Users\\rasmu\\RiderProjects\\Sensor\\Sensor\\Sensor.csproj",
+      "packagesPath": "C:\\Users\\rasmu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\rasmu\\RiderProjects\\Sensor\\Sensor\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\rasmu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "projectReferences": {
+            "C:\\Users\\rasmu\\RiderProjects\\Sensor\\MQTT\\MQTT.csproj": {
+              "projectPath": "C:\\Users\\rasmu\\RiderProjects\\Sensor\\MQTT\\MQTT.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0": {
+        "targetAlias": "net5.0",
+        "dependencies": {
+          "MQTTnet": {
+            "target": "Package",
+            "version": "[4.3.3.952, )"
+          },
+          "SenseHatNet": {
+            "target": "Package",
+            "version": "[0.0.7, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+      }
+    }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'M2Mqtt 4.3.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "M2Mqtt",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
+}

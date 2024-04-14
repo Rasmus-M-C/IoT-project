@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>MQTTServer</RootNamespace>
+        <AssemblyName>MQTTServer</AssemblyName>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="M2Mqtt" Version="4.3.0" />
+      <PackageReference Include="MQTTnet" Version="4.3.3.952" />
+    </ItemGroup>
+
+</Project>
