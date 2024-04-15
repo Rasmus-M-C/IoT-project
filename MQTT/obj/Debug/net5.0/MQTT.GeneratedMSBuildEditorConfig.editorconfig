@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = MQTTServer
-build_property.ProjectDir = C:\Users\rasmu\RiderProjects\Sensor\MQTT\
+build_property.ProjectDir = C:\Users\m-esp\Documents\IoTProject\IoT-project\MQTT\
