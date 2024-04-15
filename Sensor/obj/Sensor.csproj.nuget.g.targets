@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)system.reactive\4.4.1\buildTransitive\netcoreapp3.0\System.Reactive.targets" Condition="Exists('$(NuGetPackageRoot)system.reactive\4.4.1\buildTransitive\netcoreapp3.0\System.Reactive.targets')" />
+    <Import Project="$(NuGetPackageRoot)system.text.encodings.web\7.0.0\buildTransitive\netcoreapp2.0\System.Text.Encodings.Web.targets" Condition="Exists('$(NuGetPackageRoot)system.text.encodings.web\7.0.0\buildTransitive\netcoreapp2.0\System.Text.Encodings.Web.targets')" />
+    <Import Project="$(NuGetPackageRoot)system.text.json\7.0.2\buildTransitive\netcoreapp2.0\System.Text.Json.targets" Condition="Exists('$(NuGetPackageRoot)system.text.json\7.0.2\buildTransitive\netcoreapp2.0\System.Text.Json.targets')" />
+    <Import Project="$(NuGetPackageRoot)system.security.cryptography.protecteddata\8.0.0\buildTransitive\netcoreapp2.0\System.Security.Cryptography.ProtectedData.targets" Condition="Exists('$(NuGetPackageRoot)system.security.cryptography.protecteddata\8.0.0\buildTransitive\netcoreapp2.0\System.Security.Cryptography.ProtectedData.targets')" />
+    <Import Project="$(NuGetPackageRoot)system.configuration.configurationmanager\8.0.0\buildTransitive\netcoreapp2.0\System.Configuration.ConfigurationManager.targets" Condition="Exists('$(NuGetPackageRoot)system.configuration.configurationmanager\8.0.0\buildTransitive\netcoreapp2.0\System.Configuration.ConfigurationManager.targets')" />
+    <Import Project="$(NuGetPackageRoot)system.collections.immutable\8.0.0\buildTransitive\netcoreapp2.0\System.Collections.Immutable.targets" Condition="Exists('$(NuGetPackageRoot)system.collections.immutable\8.0.0\buildTransitive\netcoreapp2.0\System.Collections.Immutable.targets')" />
   </ImportGroup>
 </Project>
