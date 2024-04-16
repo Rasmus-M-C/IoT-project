@@ -10,15 +10,16 @@ namespace MQTTService
 {
     public class MQTTClient
     {
-        private IMqttClient Client { get; set; }
+        public IMqttClient Client { get; set; }
         private string BrokerIP { get; set; }
 
-        public MQTTClient(string brokerIp = "192.168.230.192")
+        public MQTTClient(string brokerIp = "192.168.0.63")
         {
             Console.WriteLine(brokerIp);
             BrokerIP = brokerIp;
             var mqttFactory = new MqttFactory();
             Client = mqttFactory.CreateMqttClient();
+            /*
             Client.ApplicationMessageReceivedAsync += delegate(MqttApplicationMessageReceivedEventArgs args)
             {
                 // Do some work with the message...
@@ -29,7 +30,7 @@ namespace MQTTService
                 args.ReasonCode = MqttApplicationMessageReceivedReasonCode.Success;
 
                 return Task.CompletedTask;
-            };
+            }; */
         }
 
         public async Task ConnectAsync()
@@ -42,7 +43,21 @@ namespace MQTTService
             await Client.ConnectAsync(options, CancellationToken.None);
         }
 
-        public async Task SubscribeAsync(string topic)
+        public async Task PublishMessageAsync(float payload, string topic)
+        {
+            var message = new MqttApplicationMessageBuilder()
+                .WithTopic(topic)
+                .WithPayload(payload.ToString())
+                .WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce)
+                .Build();
+            while(true){
+                Thread.Sleep(2000);
+            await Client.PublishAsync(message);
+            Console.WriteLine($"Published message to {topic}: {payload}");
+            }
+        }
+
+        public async Task Subscribe(string topic)
         {
             var topicFilter = new MqttTopicFilterBuilder()
                 .WithTopic(topic)
@@ -51,18 +66,6 @@ namespace MQTTService
 
             await Client.SubscribeAsync(topicFilter);
             Console.WriteLine($"Subscribed to {topic}");
-        }
-
-        public async Task PublishMessageAsync(float payload, string topic)
-        {
-            var message = new MqttApplicationMessageBuilder()
-                .WithTopic(topic)
-                .WithPayload(payload.ToString())
-                .WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce)
-                .Build();
-
-            await Client.PublishAsync(message);
-            Console.WriteLine($"Published message to {topic}: {payload}");
         }
     }
 }

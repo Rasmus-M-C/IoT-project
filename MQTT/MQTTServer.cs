@@ -233,7 +233,7 @@ namespace MQTT.Server
         public static async Task InfluxDBWrite(string sensorID ,float temp, float press, float humidity)
         {
             string influxUrl = "https://eu-central-1-1.aws.cloud2.influxdata.com/api/v2/buckets";
-            string token = "ed80GKFRH_eNI-L0DAqm_Y8JdcBDwVcw8ZBMlnpCpoRHISt5kjitNaq1PwD6Do3JP3vMKV_4QNqOukINErS7kg==";
+            string token = Environment.GetEnvironmentVariable("API_TOKEN");
             string org = "WeatherDay_CO";
             string bucket = "weatherdata";
 
