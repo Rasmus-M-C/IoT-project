@@ -5,6 +5,7 @@ using MQTTnet.Client;
 using System.Threading.Tasks;
 using MQTTnet.Packets;
 using MQTTnet.Protocol;
+using RaspberryPi;
 
 namespace MQTTService
 {
@@ -13,7 +14,7 @@ namespace MQTTService
         public IMqttClient Client { get; set; }
         private string BrokerIP { get; set; }
 
-        public MQTTClient(string brokerIp = "192.168.230.192")
+        public MQTTClient(string brokerIp = "834699b1c09d459582225a5b5ebf9fdc.s1.eu.hivemq.cloud")
         {
             Console.WriteLine(brokerIp);
             BrokerIP = brokerIp;
@@ -25,7 +26,7 @@ namespace MQTTService
         public async Task ConnectAsync()
         {
             var options = new MqttClientOptionsBuilder()
-                .WithTcpServer(BrokerIP, 1883)
+                .WithTcpServer(BrokerIP, 8883)
                 .WithCleanSession()
                 .Build();
 
@@ -43,6 +44,21 @@ namespace MQTTService
             Console.WriteLine($"Subscribed to {topic}");
         }
 
+        public async Task Publisher(ISensor sensor, int interval, string topic)
+        {
+            if (interval < 1)
+                throw new Exception("Interval to broadcast messages must be greater than 0.");
+            else
+            {
+                var value = sensor.Measure();
+                while (true)
+                {
+                    await PublishMessageAsync(value, topic);
+                    await Task.Delay(interval * 1000);
+                }
+            }
+        }
+        
         public async Task PublishMessageAsync(float payload, string topic)
         {
             byte[] payloadBytes = BitConverter.GetBytes(payload);
