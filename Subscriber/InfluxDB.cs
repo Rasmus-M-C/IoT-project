@@ -1,23 +1,57 @@
 ﻿using System;
-using InfluxDB.Client;
-using InfluxDB.Client.Api.Domain;
-using InfluxDB.Client.Writes;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
+using Google.Protobuf.WellKnownTypes;
+using InfluxDB3.Client;
+using InfluxDB3.Client.Write;
 
 namespace Subscriber
 {
     public class InfluxDB
     {
-        
+        private string host { get; set; }
+
+        private string token { get; set; }
+
+        private string bucket { get; set; }
+
+        private InfluxDBClient dbClient = null;
+
+        public InfluxDB(string bucket = "weatherdata")
+        {
+            host = "https://eu-central-1-1.aws.cloud2.influxdata.com";
+            token = Environment.GetEnvironmentVariable("APP_TOKEN");
+            this.bucket = bucket;
+            dbClient = new InfluxDBClient(host: host, token: token, database: this.bucket);
+        }
+
+        public async Task NewInfluxDBEntry(float value, string location, string type)
+        {
+            var point = PointData.Measurement("measurement")
+                .SetTag("location", location)
+                .SetTag("type", type)
+                .SetField("value", value)
+                .SetTimestamp(DateTime.Now.AddHours(+2));
+            await this.dbClient.WritePointAsync(point: point);
+        }
+        /*
         public static void InfluxDBWrite(string sensorID ,float temp, float press, float humidity)
         {
-            string influxUrl = "https://eu-central-1-1.aws.cloud2.influxdata.com/api/v2/buckets";
-            string token = Environment.GetEnvironmentVariable("API_TOKEN");
-            string org = "WeatherDay_CO";
+            const string host = "";
+            string authToken = Environment.GetEnvironmentVariable("API_TOKEN");
             string bucket = "weatherdata";
 
-            using (var client = InfluxDBClientFactory.Create(influxUrl, token.ToCharArray()))
+            using var client = new InfluxDBClient(host, token: authToken, database: bucket);
+            string org = "WeatherDay_CO";
+
+
+            var point = PointData.Measurement("temperature")
+                .SetTag("location", "west")
+                .SetField("value", 55.15)
+                .SetTimestamp(DateTime.UtcNow.AddSeconds(-10));
+            await client.WritePointAsync(point: point);
+
             {
                 // Define data points
                 var dataPoints = new List<PointData>
@@ -35,7 +69,7 @@ namespace Subscriber
 
             Console.WriteLine("Data written successfully to InfluxDB.");
         }
-        
+
         static PointData CreatePoint(string measurement, string location ,Dictionary<string, object> fields)
         {
             var builder = PointData.Measurement(measurement);
@@ -61,7 +95,6 @@ namespace Subscriber
             }
 
             return builder.Timestamp(DateTime.UtcNow, WritePrecision.Ms);
-        }
+        } */
     }
-    
 }

@@ -52,9 +52,9 @@
               "target": "Package",
               "version": "[4.15.0-dev.13567, )"
             },
-            "M2Mqtt": {
+            "InfluxDB3.Client": {
               "target": "Package",
-              "version": "[4.3.0, )"
+              "version": "[0.6.0, )"
             },
             "MQTTnet": {
               "target": "Package",
