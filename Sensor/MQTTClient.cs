@@ -10,10 +10,10 @@ namespace MQTTService
 {
     public class MQTTClient
     {
-        private IMqttClient Client { get; set; }
+        public IMqttClient Client { get; set; }
         private string BrokerIP { get; set; }
 
-        public MQTTClient(string brokerIp = "10.192.7.22")
+        public MQTTClient(string brokerIp = "192.168.230.192")
         {
             Console.WriteLine(brokerIp);
             BrokerIP = brokerIp;
