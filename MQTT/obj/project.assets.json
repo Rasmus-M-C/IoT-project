@@ -1449,19 +1449,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\m-esp\\.nuget\\packages\\": {}
+    "/Users/asgerleth/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\MQTT\\MQTT.csproj",
+      "projectUniqueName": "/Users/asgerleth/RiderProjects/IoT-project/MQTT/MQTT.csproj",
       "projectName": "MQTTServer",
-      "projectPath": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\MQTT\\MQTT.csproj",
-      "packagesPath": "C:\\Users\\m-esp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\MQTT\\obj\\",
+      "projectPath": "/Users/asgerleth/RiderProjects/IoT-project/MQTT/MQTT.csproj",
+      "packagesPath": "/Users/asgerleth/.nuget/packages/",
+      "outputPath": "/Users/asgerleth/RiderProjects/IoT-project/MQTT/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\m-esp\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/asgerleth/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -1517,7 +1517,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\m-esp\\.dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/5.0.408/RuntimeIdentifierGraph.json"
       }
     }
   },
