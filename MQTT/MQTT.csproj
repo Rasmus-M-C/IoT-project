@@ -14,4 +14,15 @@
       <PackageReference Include="MQTTnet" Version="4.3.3.952" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Include="bin\Debug\net5.0\.env" />
+      <None Update=".env">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="bin\Debug\net5.0\" />
+    </ItemGroup>
+
 </Project>
