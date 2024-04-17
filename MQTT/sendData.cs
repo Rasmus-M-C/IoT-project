@@ -19,6 +19,7 @@ using InfluxDB.Client.Writes;
 using System.Collections.Generic;
 using System.Threading;
 
+
 namespace InfluxDB.Test
 {
     public static class InfluxDB_Samples
