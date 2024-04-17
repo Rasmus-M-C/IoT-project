@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using MQTT.Server;
+using InfluxDB.Test;
 
 namespace YourNamespace
 {
