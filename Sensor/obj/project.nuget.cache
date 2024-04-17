@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "KxhwNn9oozOfmugamzVhE9440BizNEIelAbqkazJi+BeXZDMHb8SbSKtZZIjetWGH44kBTMn6t1rAqgOn9lMPg==",
+  "dgSpecHash": "b2ads2x1lnBLbtcNG/kALrc7KD2cijGn1ds9f7Nbr4GzKNtNdFlveghSUoa9RY3kV734ZNqMTrKJBtVmcv8L0A==",
   "success": true,
   "projectFilePath": "C:\\Users\\rasmu\\RiderProjects\\IoT-project\\Sensor\\Sensor.csproj",
   "expectedPackageFiles": [
@@ -9,7 +9,6 @@
     "C:\\Users\\rasmu\\.nuget\\packages\\influxdb.client\\4.15.0-dev.13567\\influxdb.client.4.15.0-dev.13567.nupkg.sha512",
     "C:\\Users\\rasmu\\.nuget\\packages\\influxdb.client.core\\4.15.0-dev.13567\\influxdb.client.core.4.15.0-dev.13567.nupkg.sha512",
     "C:\\Users\\rasmu\\.nuget\\packages\\jsonsubtypes\\2.0.1\\jsonsubtypes.2.0.1.nupkg.sha512",
-    "C:\\Users\\rasmu\\.nuget\\packages\\m2mqtt\\4.3.0\\m2mqtt.4.3.0.nupkg.sha512",
     "C:\\Users\\rasmu\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
     "C:\\Users\\rasmu\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\rasmu\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\3.1.0\\microsoft.extensions.caching.abstractions.3.1.0.nupkg.sha512",
@@ -46,16 +45,5 @@
     "C:\\Users\\rasmu\\.nuget\\packages\\system.text.json\\7.0.2\\system.text.json.7.0.2.nupkg.sha512",
     "C:\\Users\\rasmu\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'M2Mqtt 4.3.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
-      "libraryId": "M2Mqtt",
-      "targetGraphs": [
-        "net5.0"
-      ]
-    }
-  ]
+  "logs": []
 }

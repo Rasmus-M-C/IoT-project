@@ -16,6 +16,8 @@ namespace RaspberryPi
             
             HumiditySensor sensor = new HumiditySensor();
             MQTTClient client = new MQTTClient();
+            await client.ConnectAsync();
+            
             await client.Publisher(sensor, 5, "home");
             
         }

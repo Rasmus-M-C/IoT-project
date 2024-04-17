@@ -52,10 +52,6 @@
               "target": "Package",
               "version": "[4.15.0-dev.13567, )"
             },
-            "M2Mqtt": {
-              "target": "Package",
-              "version": "[4.3.0, )"
-            },
             "MQTTnet": {
               "target": "Package",
               "version": "[4.3.3.952, )"
