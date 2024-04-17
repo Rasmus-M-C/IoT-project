@@ -13,9 +13,8 @@ using MQTTnet;
 using MQTTnet.Diagnostics;
 using MQTTnet.Protocol;
 using MQTTnet.Server;
-using InfluxDB.Client;
-using InfluxDB.Client.Api.Domain;
-using InfluxDB.Client.Writes;
+using InfluxDB3.Client;
+using InfluxDB3.Client.Write;
 using System.Collections.Generic;
 using System.Threading;
 
@@ -30,15 +29,15 @@ namespace InfluxDB.Test
             string influxUrl = "https://eu-central-1-1.aws.cloud2.influxdata.com";
             string token = Environment.GetEnvironmentVariable("API_TOKEN");
             Console.WriteLine(token);
-            const string org = "WeatherDay Co";
-            const string bucket = "weatherdata";
+            const string org = "weatherdayco";//"WeatherDay Co";
+            const string bucketname = "weatherdata";
             
             using (var client = new InfluxDBClient(influxUrl, token))
             {
                 // Define data points
                 var dataPoints = new List<PointData>
                 {
-                    CreatePoint("home", sensorID,new Dictionary<string, object> {
+                    CreatePoint("sensordata", sensorID,new Dictionary<string, object> {
                         {"temp", temp },
                         {"pressure", press},
                         {"humidity", humidity}// Assuming it is in float
@@ -47,7 +46,7 @@ namespace InfluxDB.Test
                 
                 foreach (var point in dataPoints)
                 {
-                    await client.GetWriteApiAsync().WritePointAsync(point: point, bucket: bucket, org: org);
+                    await client.WritePointAsync(point: point, database: bucketname);
                     //await client.WritePointAsync(point: point, database: bucket);
     
                     Thread.Sleep(1000); // separate points by 1 second
@@ -67,24 +66,24 @@ namespace InfluxDB.Test
         {
             // https://eu-central-1-1.aws.cloud2.influxdata.com/orgs/d119a21a75bd117f/new-user-setup/csharpe
             var builder = PointData.Measurement(measurement);
-            builder.Tag("sensorId", sensorId);
+            builder.SetTag("sensorId", sensorId);
             foreach (var field in fields)
             {
                 if (field.Value is string)
                 {
-                    builder = builder.Field(field.Key, (string)field.Value);
+                    builder = builder.SetField(field.Key, (string)field.Value);
                 }
                 else if (field.Value is double)
                 {
-                    builder = builder.Field(field.Key, (double)field.Value);
+                    builder = builder.SetField(field.Key, (double)field.Value);
                 }
                 else if (field.Value is long)
                 {
-                    builder = builder.Field(field.Key, (long)field.Value);
+                    builder = builder.SetField(field.Key, (long)field.Value);
                 }
                 else if (field.Value is float)
                 {
-                    builder = builder.Field(field.Key, (float)field.Value);
+                    builder = builder.SetField(field.Key, (float)field.Value);
                 }
                 else
                 {
@@ -92,7 +91,7 @@ namespace InfluxDB.Test
                 }
             }
 
-            return builder.Timestamp(DateTime.UtcNow, WritePrecision.Ms);
+            return builder.SetTimestamp(DateTime.UtcNow.Ticks, WritePrecision.Ms);
         }
     }
 }
