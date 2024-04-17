@@ -18,7 +18,6 @@ C:\Users\m-esp\Documents\IoTProject\IoT-project\MQTT\bin\Debug\net5.0\CsvHelper.
 C:\Users\m-esp\Documents\IoTProject\IoT-project\MQTT\bin\Debug\net5.0\InfluxDB.Client.dll
 C:\Users\m-esp\Documents\IoTProject\IoT-project\MQTT\bin\Debug\net5.0\InfluxDB.Client.Core.dll
 C:\Users\m-esp\Documents\IoTProject\IoT-project\MQTT\bin\Debug\net5.0\JsonSubTypes.dll
-C:\Users\m-esp\Documents\IoTProject\IoT-project\MQTT\bin\Debug\net5.0\M2Mqtt.Net.dll
 C:\Users\m-esp\Documents\IoTProject\IoT-project\MQTT\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\m-esp\Documents\IoTProject\IoT-project\MQTT\bin\Debug\net5.0\Microsoft.Extensions.Caching.Abstractions.dll
 C:\Users\m-esp\Documents\IoTProject\IoT-project\MQTT\bin\Debug\net5.0\Microsoft.Extensions.Caching.Memory.dll
@@ -100,3 +99,11 @@ C:\Users\rasmu\RiderProjects\Sensor\MQTT\bin\Debug\net5.0\System.Text.Json.dll
 C:\Users\rasmu\RiderProjects\Sensor\MQTT\obj\Debug\net5.0\MQTTServer.dll
 C:\Users\rasmu\RiderProjects\Sensor\MQTT\obj\Debug\net5.0\ref\MQTTServer.dll
 C:\Users\rasmu\RiderProjects\Sensor\MQTT\obj\Debug\net5.0\MQTTServer.pdb
+C:\Users\m-esp\Documents\IoTProject\IoT-project\MQTT\bin\Debug\net5.0\Apache.Arrow.dll
+C:\Users\m-esp\Documents\IoTProject\IoT-project\MQTT\bin\Debug\net5.0\Apache.Arrow.Flight.dll
+C:\Users\m-esp\Documents\IoTProject\IoT-project\MQTT\bin\Debug\net5.0\Google.Protobuf.dll
+C:\Users\m-esp\Documents\IoTProject\IoT-project\MQTT\bin\Debug\net5.0\Grpc.Core.Api.dll
+C:\Users\m-esp\Documents\IoTProject\IoT-project\MQTT\bin\Debug\net5.0\Grpc.Net.Client.dll
+C:\Users\m-esp\Documents\IoTProject\IoT-project\MQTT\bin\Debug\net5.0\Grpc.Net.Common.dll
+C:\Users\m-esp\Documents\IoTProject\IoT-project\MQTT\bin\Debug\net5.0\InfluxDB3.Client.dll
+C:\Users\m-esp\Documents\IoTProject\IoT-project\MQTT\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll

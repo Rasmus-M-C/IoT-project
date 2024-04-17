@@ -21,7 +21,7 @@ namespace Subscriber
         public InfluxDB(string bucket = "weatherdata")
         {
             host = "https://eu-central-1-1.aws.cloud2.influxdata.com";
-            token = Environment.GetEnvironmentVariable("APP_TOKEN");
+            token = Environment.GetEnvironmentVariable("API_TOKEN");
             this.bucket = bucket;
             dbClient = new InfluxDBClient(host: host, token: token, database: this.bucket);
         }

@@ -24,7 +24,7 @@ namespace Subscriber
             await client.SubscribeAsync("home");
 
             InfluxDB dbClient = new InfluxDB();
-            await dbClient.NewInfluxDBEntry(18f, "rasmus", "test");
+            await dbClient.NewInfluxDBEntry(18f, "Mikkel", "test");
         }
     }
 }

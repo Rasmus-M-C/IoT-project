@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rasmu\\RiderProjects\\Sensor\\MQTT\\MQTT.csproj": {}
+    "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\MQTT\\MQTT.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rasmu\\RiderProjects\\Sensor\\MQTT\\MQTT.csproj": {
+    "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\MQTT\\MQTT.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rasmu\\RiderProjects\\Sensor\\MQTT\\MQTT.csproj",
+        "projectUniqueName": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\MQTT\\MQTT.csproj",
         "projectName": "MQTTServer",
-        "projectPath": "C:\\Users\\rasmu\\RiderProjects\\Sensor\\MQTT\\MQTT.csproj",
-        "packagesPath": "C:\\Users\\rasmu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rasmu\\RiderProjects\\Sensor\\MQTT\\obj\\",
+        "projectPath": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\MQTT\\MQTT.csproj",
+        "packagesPath": "C:\\Users\\m-esp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\MQTT\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\rasmu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\m-esp\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -76,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\m-esp\\.dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     }
