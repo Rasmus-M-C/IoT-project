@@ -57,6 +57,7 @@ namespace MQTTService
                 await Client.PublishAsync(message);
                 Console.WriteLine($"Published message to {topic}: {payload}");
             }*/
+            await Client.PublishAsync(message);
             Console.WriteLine($"Published message to {topic}: {payload}");
         }
 
