@@ -13,11 +13,12 @@ namespace RaspberryPi
     {
         static async Task Main()
         {
-            string reading = "20.0";
+            float reading = 20.5f;
             MQTTClient client = new MQTTClient();
-            await client.ConnectAsync();
-            await client.SubscribeAsync("home"); // Subscribe to the topic
-            await client.PublishMessageAsync(float.Parse(reading), "home");
+            await client.ConnectAsync();// Subscribe to the topic
+            
+            await client.Subscribe("home");
+            await client.PublishMessageAsync(reading, "home");
 
             // Keep the application running to listen for incoming messages
             Console.WriteLine("Press any key to exit...");
