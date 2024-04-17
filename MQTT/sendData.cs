@@ -29,7 +29,7 @@ namespace InfluxDB.Test
             string influxUrl = "https://eu-central-1-1.aws.cloud2.influxdata.com";
             string token = Environment.GetEnvironmentVariable("API_TOKEN");
             Console.WriteLine(token);
-            const string org = "WeatherDay Co";
+            const string org = "weatherdayco";//"WeatherDay Co";
             const string bucket = "weatherdata";
             
             using (var client = new InfluxDBClient(influxUrl, token))
