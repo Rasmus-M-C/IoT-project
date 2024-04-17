@@ -13,16 +13,11 @@ namespace RaspberryPi
     {
         static async Task Main()
         {
-            float reading = 20.5f;
-            MQTTClient client = new MQTTClient();
-            await client.ConnectAsync();// Subscribe to the topic
             
-            await client.Subscribe("home");
-            await client.PublishMessageAsync(reading, "home");
-
-            // Keep the application running to listen for incoming messages
-            Console.WriteLine("Press any key to exit...");
-            Console.ReadLine();
+            HumiditySensor sensor = new HumiditySensor();
+            MQTTClient client = new MQTTClient();
+            await client.Publisher(sensor, 5, "home");
+            
         }
         
     }
