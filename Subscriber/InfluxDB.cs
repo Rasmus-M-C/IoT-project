@@ -26,6 +26,7 @@ namespace Subscriber
             dbClient = new InfluxDBClient(host: host, token: token, database: this.bucket);
         }
 
+        // Make fields for each sensor reading type: humidity, pressure, temperatur.
         public async Task NewInfluxDBEntry(float value, string location, string type)
         {
             var point = PointData.Measurement("measurement")
