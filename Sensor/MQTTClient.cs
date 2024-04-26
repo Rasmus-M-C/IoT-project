@@ -46,21 +46,26 @@ namespace MQTTService
             Console.WriteLine($"Subscribed to {topic}");
         }
 
+        // Method to start a publisher on a separate thread
+        public void StartPublisher(ISensor sensor, int interval, string topic)
+        {
+            Task.Run(async () => await Publisher(sensor, interval, topic));
+        }
+
+        // The publisher method, now suitable for concurrent execution
         public async Task Publisher(ISensor sensor, int interval, string topic)
         {
             if (interval < 1)
                 throw new Exception("Interval to broadcast messages must be greater than 0.");
-            else
+            await Task.Delay(interval * 1000); // Delay the first message
+
+            while (true)
             {
-                var value = sensor.Measure();
-                while (true)
-                {
-                    await PublishMessageAsync(value, topic);
-                    await Task.Delay(interval * 1000);
-                }
+                var value = sensor.Measure(); // Move measurement inside the loop
+                await PublishMessageAsync(value, topic);
+                await Task.Delay(interval * 1000);
             }
         }
-        
         public async Task PublishMessageAsync(float payload, string topic)
         {
             byte[] payloadBytes = BitConverter.GetBytes(payload);
@@ -87,24 +92,27 @@ namespace MQTTService
                 .Build();
 
             await Client.SubscribeAsync(topicFilter);
-
             Console.WriteLine($"Subscribed to {topic}");
-            Client.ApplicationMessageReceivedAsync += e =>
-            {
-                var payloadBytes = e.ApplicationMessage.PayloadSegment.ToArray();
 
-                // Ensure the payload is exactly 4 bytes, the size of a single-precision float
-                if (payloadBytes.Length == 4)
+            Client.ApplicationMessageReceivedAsync += async e =>
+            {
+                // Offload the processing to a separate task
+                await Task.Run(() =>
                 {
-                    float receivedValue = BitConverter.ToSingle(payloadBytes, 0);
-                    Console.WriteLine($"Received float value {receivedValue} on topic: {e.ApplicationMessage.Topic}");
-                }
-                else
-                {
-                    // Handle other cases differently or log an error
-                    Console.WriteLine("Received payload is not of expected length for a float value.");
-                }
-                return Task.CompletedTask;
+                    var payloadBytes = e.ApplicationMessage.PayloadSegment.ToArray();
+
+                    // Ensure the payload is exactly 4 bytes, the size of a single-precision float
+                    if (payloadBytes.Length == 4)
+                    {
+                        float receivedValue = BitConverter.ToSingle(payloadBytes, 0);
+                        Console.WriteLine($"Received float value {receivedValue} on topic: {e.ApplicationMessage.Topic}");
+                    }
+                    else
+                    {
+                        // Handle other cases differently or log an error
+                        Console.WriteLine("Received payload is not of expected length for a float value.");
+                    }
+                });
             };
         }
     }
