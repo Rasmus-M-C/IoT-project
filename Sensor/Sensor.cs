@@ -20,6 +20,7 @@ namespace RaspberryPi
             using (var sensorType = settings.CreateHumidity())
             {
                 var measurement = sensorType.Read();
+                Console.WriteLine(measurement.Humidity);
 
                 return measurement.Humidity;
 
@@ -36,8 +37,25 @@ namespace RaspberryPi
             using (var sensorType = settings.CreatePressure())
             {
                 var measurement = sensorType.Read();
+                Console.WriteLine(measurement.Pressure);
 
                 return measurement.Pressure;
+
+            }
+        }
+    }
+    public class TempSensor : ISensor
+    {
+        public float Measure()
+        {
+            var settings = RTIMUSettings.CreateDefault();
+            using (var imu = settings.CreateIMU())
+            using (var sensorType = settings.CreatePressure())
+            {
+                var measurement = sensorType.Read();
+                Console.WriteLine(measurement.Temperatur);
+
+                return measurement.Temperatur;
 
             }
         }
