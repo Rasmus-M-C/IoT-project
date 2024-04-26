@@ -26,6 +26,8 @@ namespace MQTTService
         public async Task ConnectAsync()
         {
             var options = new MqttClientOptionsBuilder()
+                .WithCredentials("admin", "Admin123")
+                .WithTls()
                 .WithTcpServer(BrokerIP, 8883)
                 .WithCleanSession()
                 .Build();
