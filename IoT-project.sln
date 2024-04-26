@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sensor", "Sensor\Sensor.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MQTT", "MQTT\MQTT.csproj", "{CC504249-3643-4861-9454-4AAAB9198B07}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subscriber", "Subscriber\Subscriber.csproj", "{7CF4853D-ABF4-4F2C-888A-C7AFB1A0BB73}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{CC504249-3643-4861-9454-4AAAB9198B07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC504249-3643-4861-9454-4AAAB9198B07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC504249-3643-4861-9454-4AAAB9198B07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CF4853D-ABF4-4F2C-888A-C7AFB1A0BB73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CF4853D-ABF4-4F2C-888A-C7AFB1A0BB73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CF4853D-ABF4-4F2C-888A-C7AFB1A0BB73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CF4853D-ABF4-4F2C-888A-C7AFB1A0BB73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,210 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\Subscriber\\Subscriber.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\MQTT\\MQTT.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\MQTT\\MQTT.csproj",
+        "projectName": "MQTTServer",
+        "projectPath": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\MQTT\\MQTT.csproj",
+        "packagesPath": "C:\\Users\\m-esp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\MQTT\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\m-esp\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Coravel": {
+              "target": "Package",
+              "version": "[4.2.2, )"
+            },
+            "InfluxDB.Client": {
+              "target": "Package",
+              "version": "[4.15.0-dev.13567, )"
+            },
+            "InfluxDB3.Client": {
+              "target": "Package",
+              "version": "[0.6.0, )"
+            },
+            "MQTTnet": {
+              "target": "Package",
+              "version": "[4.3.3.952, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Users\\m-esp\\.dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\Sensor\\Sensor.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\Sensor\\Sensor.csproj",
+        "projectName": "RaspberryPI",
+        "projectPath": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\Sensor\\Sensor.csproj",
+        "packagesPath": "C:\\Users\\m-esp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\Sensor\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\m-esp\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\MQTT\\MQTT.csproj": {
+                "projectPath": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\MQTT\\MQTT.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "MQTTnet": {
+              "target": "Package",
+              "version": "[4.3.3.952, )"
+            },
+            "SenseHatNet": {
+              "target": "Package",
+              "version": "[0.0.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Users\\m-esp\\.dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\Subscriber\\Subscriber.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\Subscriber\\Subscriber.csproj",
+        "projectName": "Subscriber",
+        "projectPath": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\Subscriber\\Subscriber.csproj",
+        "packagesPath": "C:\\Users\\m-esp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\Subscriber\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\m-esp\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\Sensor\\Sensor.csproj": {
+                "projectPath": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\Sensor\\Sensor.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "InfluxDB.Client": {
+              "target": "Package",
+              "version": "[4.15.0-dev.13567, )"
+            },
+            "InfluxDB3.Client": {
+              "target": "Package",
+              "version": "[0.6.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Users\\m-esp\\.dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -2,6 +2,35 @@
   "version": 3,
   "targets": {
     "net5.0": {
+      "Apache.Arrow/15.0.2": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.5.1",
+          "System.Memory": "4.5.5",
+          "System.Runtime.CompilerServices.Unsafe": "4.7.1",
+          "System.Threading.Tasks.Extensions": "4.5.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/Apache.Arrow.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Apache.Arrow.dll": {}
+        }
+      },
+      "Apache.Arrow.Flight/15.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Apache.Arrow": "15.0.2",
+          "Google.Protobuf": "3.25.1",
+          "Grpc.Net.Client": "2.59.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/Apache.Arrow.Flight.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Apache.Arrow.Flight.dll": {}
+        }
+      },
       "Coravel/4.2.2": {
         "type": "package",
         "dependencies": {
@@ -33,6 +62,66 @@
         "runtime": {
           "lib/netstandard2.1/CsvHelper.dll": {
             "related": ".xml"
+          }
+        }
+      },
+      "Google.Protobuf/3.25.1": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Google.Protobuf.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Google.Protobuf.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "Grpc.Core.Api/2.59.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/Grpc.Core.Api.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/Grpc.Core.Api.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "Grpc.Net.Client/2.59.0": {
+        "type": "package",
+        "dependencies": {
+          "Grpc.Net.Common": "2.59.0",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
+          "System.Diagnostics.DiagnosticSource": "6.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.1/Grpc.Net.Client.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/Grpc.Net.Client.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "Grpc.Net.Common/2.59.0": {
+        "type": "package",
+        "dependencies": {
+          "Grpc.Core.Api": "2.59.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/Grpc.Net.Common.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/Grpc.Net.Common.dll": {
+            "related": ".pdb;.xml"
           }
         }
       },
@@ -70,6 +159,18 @@
           "lib/netstandard2.1/InfluxDB.Client.Core.dll": {}
         }
       },
+      "InfluxDB3.Client/0.6.0": {
+        "type": "package",
+        "dependencies": {
+          "Apache.Arrow.Flight": "15.0.2"
+        },
+        "compile": {
+          "lib/netstandard2.1/InfluxDB3.Client.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/InfluxDB3.Client.dll": {}
+        }
+      },
       "JsonSubTypes/2.0.1": {
         "type": "package",
         "dependencies": {
@@ -80,19 +181,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/JsonSubTypes.dll": {}
-        }
-      },
-      "M2Mqtt/4.3.0": {
-        "type": "package",
-        "compile": {
-          "lib/net45/M2Mqtt.Net.dll": {
-            "related": ".pdb"
-          }
-        },
-        "runtime": {
-          "lib/net45/M2Mqtt.Net.dll": {
-            "related": ".pdb"
-          }
         }
       },
       "Microsoft.Bcl.AsyncInterfaces/7.0.0": {
@@ -216,8 +304,12 @@
           }
         }
       },
-      "Microsoft.Extensions.Logging.Abstractions/3.1.0": {
+      "Microsoft.Extensions.Logging.Abstractions/6.0.0": {
         "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.5.1",
+          "System.Memory": "4.5.4"
+        },
         "compile": {
           "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {
             "related": ".xml"
@@ -227,6 +319,9 @@
           "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {
             "related": ".xml"
           }
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
       "Microsoft.Extensions.ObjectPool/8.0.3": {
@@ -412,6 +507,25 @@
           "buildTransitive/netcoreapp2.0/System.Configuration.ConfigurationManager.targets": {}
         }
       },
+      "System.Diagnostics.DiagnosticSource/6.0.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "compile": {
+          "lib/net5.0/System.Diagnostics.DiagnosticSource.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/System.Diagnostics.DiagnosticSource.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
+        }
+      },
       "System.Memory/4.5.5": {
         "type": "package",
         "compile": {
@@ -539,6 +653,34 @@
     }
   },
   "libraries": {
+    "Apache.Arrow/15.0.2": {
+      "sha512": "4Bx7XPDynY8w9ZB264jVD/3YiTQukJzuMtJe6C7FR7dUM2YsVoUPuvwNLFz7Ciwqhic6PkAwQcg4DyZUyy4Ubw==",
+      "type": "package",
+      "path": "apache.arrow/15.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "apache.arrow.15.0.2.nupkg.sha512",
+        "apache.arrow.nuspec",
+        "lib/net6.0/Apache.Arrow.dll",
+        "lib/netstandard2.0/Apache.Arrow.dll"
+      ]
+    },
+    "Apache.Arrow.Flight/15.0.2": {
+      "sha512": "0/oQ7SlSYLZQqAEt7cyBkj+O/DOMqh2byOhI2TsZQt/ISEQeyoKO1l+VtxoCYspxCvZQDhckCs346hZ93XDDRA==",
+      "type": "package",
+      "path": "apache.arrow.flight/15.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "apache.arrow.flight.15.0.2.nupkg.sha512",
+        "apache.arrow.flight.nuspec",
+        "lib/netstandard2.0/Apache.Arrow.Flight.dll",
+        "lib/netstandard2.1/Apache.Arrow.Flight.dll"
+      ]
+    },
     "Coravel/4.2.2": {
       "sha512": "6mL1UvgCIh2V4C1O27KiXARGU5r9sUR/xgblwRa+5AEPo/6CY41QlaDOpBTXv48am9hBUsqzMIb6qBhqspa2JQ==",
       "type": "package",
@@ -582,6 +724,109 @@
         "lib/netstandard2.1/CsvHelper.xml"
       ]
     },
+    "Google.Protobuf/3.25.1": {
+      "sha512": "Sw9bq4hOD+AaS3RrnmP5IT25cyZ/T1qpM0e8+G+23Nojhv7+ScJFPEAQo1m4EFQWhXoI4FRZDrK+wjHCPw9yxg==",
+      "type": "package",
+      "path": "google.protobuf/3.25.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "google.protobuf.3.25.1.nupkg.sha512",
+        "google.protobuf.nuspec",
+        "lib/net45/Google.Protobuf.dll",
+        "lib/net45/Google.Protobuf.pdb",
+        "lib/net45/Google.Protobuf.xml",
+        "lib/net5.0/Google.Protobuf.dll",
+        "lib/net5.0/Google.Protobuf.pdb",
+        "lib/net5.0/Google.Protobuf.xml",
+        "lib/netstandard1.1/Google.Protobuf.dll",
+        "lib/netstandard1.1/Google.Protobuf.pdb",
+        "lib/netstandard1.1/Google.Protobuf.xml",
+        "lib/netstandard2.0/Google.Protobuf.dll",
+        "lib/netstandard2.0/Google.Protobuf.pdb",
+        "lib/netstandard2.0/Google.Protobuf.xml"
+      ]
+    },
+    "Grpc.Core.Api/2.59.0": {
+      "sha512": "n0QpwXqri/Uu7pXWbE6PWVANEhKggC6QRX7qsSR4vyzZRDN2jBPoUNvrJP7RBw7g8Dgg8e2bWYuGKq4ph6VXeA==",
+      "type": "package",
+      "path": "grpc.core.api/2.59.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "grpc.core.api.2.59.0.nupkg.sha512",
+        "grpc.core.api.nuspec",
+        "lib/net462/Grpc.Core.Api.dll",
+        "lib/net462/Grpc.Core.Api.pdb",
+        "lib/net462/Grpc.Core.Api.xml",
+        "lib/netstandard2.0/Grpc.Core.Api.dll",
+        "lib/netstandard2.0/Grpc.Core.Api.pdb",
+        "lib/netstandard2.0/Grpc.Core.Api.xml",
+        "lib/netstandard2.1/Grpc.Core.Api.dll",
+        "lib/netstandard2.1/Grpc.Core.Api.pdb",
+        "lib/netstandard2.1/Grpc.Core.Api.xml",
+        "packageIcon.png"
+      ]
+    },
+    "Grpc.Net.Client/2.59.0": {
+      "sha512": "I2CP5aLTek9mz7OwmM8T94pzvuV2Jib91KqzHh+vohazx/rL0ks1GCsUrwf+7866UsSsOznaWRKqFxWPEYstpg==",
+      "type": "package",
+      "path": "grpc.net.client/2.59.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "grpc.net.client.2.59.0.nupkg.sha512",
+        "grpc.net.client.nuspec",
+        "lib/net462/Grpc.Net.Client.dll",
+        "lib/net462/Grpc.Net.Client.pdb",
+        "lib/net462/Grpc.Net.Client.xml",
+        "lib/net6.0/Grpc.Net.Client.dll",
+        "lib/net6.0/Grpc.Net.Client.pdb",
+        "lib/net6.0/Grpc.Net.Client.xml",
+        "lib/net7.0/Grpc.Net.Client.dll",
+        "lib/net7.0/Grpc.Net.Client.pdb",
+        "lib/net7.0/Grpc.Net.Client.xml",
+        "lib/net8.0/Grpc.Net.Client.dll",
+        "lib/net8.0/Grpc.Net.Client.pdb",
+        "lib/net8.0/Grpc.Net.Client.xml",
+        "lib/netstandard2.0/Grpc.Net.Client.dll",
+        "lib/netstandard2.0/Grpc.Net.Client.pdb",
+        "lib/netstandard2.0/Grpc.Net.Client.xml",
+        "lib/netstandard2.1/Grpc.Net.Client.dll",
+        "lib/netstandard2.1/Grpc.Net.Client.pdb",
+        "lib/netstandard2.1/Grpc.Net.Client.xml",
+        "packageIcon.png"
+      ]
+    },
+    "Grpc.Net.Common/2.59.0": {
+      "sha512": "9j1wKAeCzjnx/j8CC8chXRoLCuzJ9VhhlhwMkbW37mS1Ox4vv0i2pcefpDY5INIeE1BmPNIuPtqFLOUktkiKrQ==",
+      "type": "package",
+      "path": "grpc.net.common/2.59.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "grpc.net.common.2.59.0.nupkg.sha512",
+        "grpc.net.common.nuspec",
+        "lib/net6.0/Grpc.Net.Common.dll",
+        "lib/net6.0/Grpc.Net.Common.pdb",
+        "lib/net6.0/Grpc.Net.Common.xml",
+        "lib/net7.0/Grpc.Net.Common.dll",
+        "lib/net7.0/Grpc.Net.Common.pdb",
+        "lib/net7.0/Grpc.Net.Common.xml",
+        "lib/net8.0/Grpc.Net.Common.dll",
+        "lib/net8.0/Grpc.Net.Common.pdb",
+        "lib/net8.0/Grpc.Net.Common.xml",
+        "lib/netstandard2.0/Grpc.Net.Common.dll",
+        "lib/netstandard2.0/Grpc.Net.Common.pdb",
+        "lib/netstandard2.0/Grpc.Net.Common.xml",
+        "lib/netstandard2.1/Grpc.Net.Common.dll",
+        "lib/netstandard2.1/Grpc.Net.Common.pdb",
+        "lib/netstandard2.1/Grpc.Net.Common.xml",
+        "packageIcon.png"
+      ]
+    },
     "InfluxDB.Client/4.15.0-dev.13567": {
       "sha512": "3AJAc82Oelddb7ApAoy+Nf0rfBHkh+a7uaDCrxrkYMOpangBCgEFrDnjV4tECwYETmmI267zS9o7A1FkWZ9IBw==",
       "type": "package",
@@ -611,6 +856,21 @@
         "lib/netstandard2.1/InfluxDB.Client.Core.dll"
       ]
     },
+    "InfluxDB3.Client/0.6.0": {
+      "sha512": "I9Qx3D5ccNAKNLxEcqN9cTgBNZtSI4Sw7HD0w/BXMhf1HvhSLmN8ZLDEErKNJBbT63cT1U7qsKQl0LQ0ebAqCg==",
+      "type": "package",
+      "path": "influxdb3.client/0.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "influxdata.jpg",
+        "influxdb3.client.0.6.0.nupkg.sha512",
+        "influxdb3.client.nuspec",
+        "lib/netstandard2.0/InfluxDB3.Client.dll",
+        "lib/netstandard2.1/InfluxDB3.Client.dll"
+      ]
+    },
     "JsonSubTypes/2.0.1": {
       "sha512": "1Po+Ypf0SjCeEKx5+C89Nb5OgTcqNvfS3uTI46MUM+KEp6Rq/M0h+vVsTUt/6DFRwZMTpsAJM4yJrZmEObVANA==",
       "type": "package",
@@ -629,44 +889,6 @@
         "lib/net47/JsonSubTypes.dll",
         "lib/netstandard1.3/JsonSubTypes.dll",
         "lib/netstandard2.0/JsonSubTypes.dll"
-      ]
-    },
-    "M2Mqtt/4.3.0": {
-      "sha512": "2A1uM20uxuovQKPA0dkZUqD9gUpIMaX7KxdLiVM7IEXdPRL709hGuudHnvlDxm2/6b2LcOjshrYGVG9vdpipag==",
-      "type": "package",
-      "path": "m2mqtt/4.3.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net39-cf/DeployFileList.txt",
-        "lib/net39-cf/M2Mqtt.NetCf39.dll",
-        "lib/net39-cf/M2Mqtt.NetCf39.pdb",
-        "lib/net45/M2Mqtt.Net.dll",
-        "lib/net45/M2Mqtt.Net.pdb",
-        "lib/netmf42/M2Mqtt.NetMf.dll",
-        "lib/netmf42/M2Mqtt.NetMf.pdb",
-        "lib/netmf42/be/M2Mqtt.NetMf.pdb",
-        "lib/netmf42/be/M2Mqtt.NetMf.pdbx",
-        "lib/netmf42/be/M2Mqtt.NetMf.pe",
-        "lib/netmf42/le/M2Mqtt.NetMf.pdb",
-        "lib/netmf42/le/M2Mqtt.NetMf.pdbx",
-        "lib/netmf42/le/M2Mqtt.NetMf.pe",
-        "lib/netmf43/M2Mqtt.NetMf.dll",
-        "lib/netmf43/M2Mqtt.NetMf.pdb",
-        "lib/netmf43/be/M2Mqtt.NetMf.pdb",
-        "lib/netmf43/be/M2Mqtt.NetMf.pdbx",
-        "lib/netmf43/be/M2Mqtt.NetMf.pe",
-        "lib/netmf43/le/M2Mqtt.NetMf.pdb",
-        "lib/netmf43/le/M2Mqtt.NetMf.pdbx",
-        "lib/netmf43/le/M2Mqtt.NetMf.pe",
-        "lib/win81/M2Mqtt.WinRT.dll",
-        "lib/win81/M2Mqtt.WinRT.pdb",
-        "lib/win81/M2Mqtt.WinRT.pri",
-        "lib/wpa81/M2Mqtt.WinRT.dll",
-        "lib/wpa81/M2Mqtt.WinRT.pdb",
-        "lib/wpa81/M2Mqtt.WinRT.pri",
-        "m2mqtt.4.3.0.nupkg.sha512",
-        "m2mqtt.nuspec"
       ]
     },
     "Microsoft.Bcl.AsyncInterfaces/7.0.0": {
@@ -855,18 +1077,56 @@
         "packageIcon.png"
       ]
     },
-    "Microsoft.Extensions.Logging.Abstractions/3.1.0": {
-      "sha512": "jjo4YXRx6MIpv6DiRxJjSpl+sPP0+5VW0clMEdLyIAz44PPwrDTFrd5PZckIxIXl1kKZ2KK6IL2nkt0+ug2MQg==",
+    "Microsoft.Extensions.Logging.Abstractions/6.0.0": {
+      "sha512": "/HggWBbTwy8TgebGSX5DBZ24ndhzi93sHUBDvP1IxbZD7FDokYzdAr6+vbWGjw2XAfR2EJ1sfKUotpjHnFWPxA==",
       "type": "package",
-      "path": "microsoft.extensions.logging.abstractions/3.1.0",
+      "path": "microsoft.extensions.logging.abstractions/6.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "analyzers/dotnet/roslyn3.11/cs/Microsoft.Extensions.Logging.Generators.dll",
+        "analyzers/dotnet/roslyn3.11/cs/cs/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/de/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/es/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/fr/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/it/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ja/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ko/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/pl/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/pt-BR/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ru/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/tr/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/zh-Hans/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/zh-Hant/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/Microsoft.Extensions.Logging.Generators.dll",
+        "analyzers/dotnet/roslyn4.0/cs/cs/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/de/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/es/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/fr/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/it/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ja/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ko/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/pl/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/pt-BR/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ru/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/tr/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/zh-Hans/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/zh-Hant/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "build/Microsoft.Extensions.Logging.Abstractions.targets",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Logging.Abstractions.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/net461/Microsoft.Extensions.Logging.Abstractions.xml",
+        "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.xml",
-        "microsoft.extensions.logging.abstractions.3.1.0.nupkg.sha512",
+        "microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
         "microsoft.extensions.logging.abstractions.nuspec",
-        "packageIcon.png"
+        "useSharedDesignerContext.txt"
       ]
     },
     "Microsoft.Extensions.ObjectPool/8.0.3": {
@@ -1138,6 +1398,31 @@
         "lib/netstandard2.0/System.Configuration.ConfigurationManager.xml",
         "system.configuration.configurationmanager.8.0.0.nupkg.sha512",
         "system.configuration.configurationmanager.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "System.Diagnostics.DiagnosticSource/6.0.1": {
+      "sha512": "KiLYDu2k2J82Q9BJpWiuQqCkFjRBWVq4jDzKKWawVi9KWzyD0XG3cmfX0vqTQlL14Wi9EufJrbL0+KCLTbqWiQ==",
+      "type": "package",
+      "path": "system.diagnostics.diagnosticsource/6.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/System.Diagnostics.DiagnosticSource.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/System.Diagnostics.DiagnosticSource.dll",
+        "lib/net461/System.Diagnostics.DiagnosticSource.xml",
+        "lib/net5.0/System.Diagnostics.DiagnosticSource.dll",
+        "lib/net5.0/System.Diagnostics.DiagnosticSource.xml",
+        "lib/net6.0/System.Diagnostics.DiagnosticSource.dll",
+        "lib/net6.0/System.Diagnostics.DiagnosticSource.xml",
+        "lib/netstandard2.0/System.Diagnostics.DiagnosticSource.dll",
+        "lib/netstandard2.0/System.Diagnostics.DiagnosticSource.xml",
+        "system.diagnostics.diagnosticsource.6.0.1.nupkg.sha512",
+        "system.diagnostics.diagnosticsource.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
@@ -1444,24 +1729,24 @@
     "net5.0": [
       "Coravel >= 4.2.2",
       "InfluxDB.Client >= 4.15.0-dev.13567",
-      "M2Mqtt >= 4.3.0",
+      "InfluxDB3.Client >= 0.6.0",
       "MQTTnet >= 4.3.3.952"
     ]
   },
   "packageFolders": {
-    "/Users/asgerleth/.nuget/packages/": {}
+    "C:\\Users\\m-esp\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/asgerleth/RiderProjects/IoT-project/MQTT/MQTT.csproj",
+      "projectUniqueName": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\MQTT\\MQTT.csproj",
       "projectName": "MQTTServer",
-      "projectPath": "/Users/asgerleth/RiderProjects/IoT-project/MQTT/MQTT.csproj",
-      "packagesPath": "/Users/asgerleth/.nuget/packages/",
-      "outputPath": "/Users/asgerleth/RiderProjects/IoT-project/MQTT/obj/",
+      "projectPath": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\MQTT\\MQTT.csproj",
+      "packagesPath": "C:\\Users\\m-esp\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\MQTT\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/asgerleth/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\m-esp\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -1493,9 +1778,9 @@
             "target": "Package",
             "version": "[4.15.0-dev.13567, )"
           },
-          "M2Mqtt": {
+          "InfluxDB3.Client": {
             "target": "Package",
-            "version": "[4.3.0, )"
+            "version": "[0.6.0, )"
           },
           "MQTTnet": {
             "target": "Package",
@@ -1517,20 +1802,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/5.0.408/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\m-esp\\.dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'M2Mqtt 4.3.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
-      "libraryId": "M2Mqtt",
-      "targetGraphs": [
-        "net5.0"
-      ]
-    }
-  ]
+  }
 }

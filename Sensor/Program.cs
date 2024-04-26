@@ -13,12 +13,11 @@ namespace RaspberryPi
     {
         static async Task Main()
         {
-            
             HumiditySensor sensor = new HumiditySensor();
             MQTTClient client = new MQTTClient();
-            await client.Publisher(sensor, 5, "home");
-            
+            await client.ConnectAsync();
+
+            await client.Publisher(sensor, 5, "rasmus_room");
         }
-        
     }
 }

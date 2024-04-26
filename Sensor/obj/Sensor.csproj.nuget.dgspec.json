@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/asgerleth/RiderProjects/IoT-project/Sensor/Sensor.csproj": {}
+    "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\Sensor\\Sensor.csproj": {}
   },
   "projects": {
-    "/Users/asgerleth/RiderProjects/IoT-project/MQTT/MQTT.csproj": {
+    "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\MQTT\\MQTT.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/asgerleth/RiderProjects/IoT-project/MQTT/MQTT.csproj",
+        "projectUniqueName": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\MQTT\\MQTT.csproj",
         "projectName": "MQTTServer",
-        "projectPath": "/Users/asgerleth/RiderProjects/IoT-project/MQTT/MQTT.csproj",
-        "packagesPath": "/Users/asgerleth/.nuget/packages/",
-        "outputPath": "/Users/asgerleth/RiderProjects/IoT-project/MQTT/obj/",
+        "projectPath": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\MQTT\\MQTT.csproj",
+        "packagesPath": "C:\\Users\\m-esp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\MQTT\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/asgerleth/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\m-esp\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -46,9 +46,9 @@
               "target": "Package",
               "version": "[4.15.0-dev.13567, )"
             },
-            "M2Mqtt": {
+            "InfluxDB3.Client": {
               "target": "Package",
-              "version": "[4.3.0, )"
+              "version": "[0.6.0, )"
             },
             "MQTTnet": {
               "target": "Package",
@@ -70,21 +70,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/5.0.408/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\m-esp\\.dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/asgerleth/RiderProjects/IoT-project/Sensor/Sensor.csproj": {
+    "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\Sensor\\Sensor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/asgerleth/RiderProjects/IoT-project/Sensor/Sensor.csproj",
+        "projectUniqueName": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\Sensor\\Sensor.csproj",
         "projectName": "RaspberryPI",
-        "projectPath": "/Users/asgerleth/RiderProjects/IoT-project/Sensor/Sensor.csproj",
-        "packagesPath": "/Users/asgerleth/.nuget/packages/",
-        "outputPath": "/Users/asgerleth/RiderProjects/IoT-project/Sensor/obj/",
+        "projectPath": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\Sensor\\Sensor.csproj",
+        "packagesPath": "C:\\Users\\m-esp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\Sensor\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/asgerleth/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\m-esp\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -96,8 +96,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "/Users/asgerleth/RiderProjects/IoT-project/MQTT/MQTT.csproj": {
-                "projectPath": "/Users/asgerleth/RiderProjects/IoT-project/MQTT/MQTT.csproj"
+              "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\MQTT\\MQTT.csproj": {
+                "projectPath": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\MQTT\\MQTT.csproj"
               }
             }
           }
@@ -136,7 +136,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/5.0.408/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\m-esp\\.dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     }

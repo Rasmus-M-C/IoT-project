@@ -14,7 +14,7 @@ namespace MQTTService
         public IMqttClient Client { get; set; }
         private string BrokerIP { get; set; }
 
-        public MQTTClient(string brokerIp = "834699b1c09d459582225a5b5ebf9fdc.s1.eu.hivemq.cloud")
+        public MQTTClient(string brokerIp = "0b5f2477a4fb4160bf4cabc96ee41a39.s1.eu.hivemq.cloud")
         {
             Console.WriteLine(brokerIp);
             BrokerIP = brokerIp;
@@ -28,7 +28,7 @@ namespace MQTTService
             var options = new MqttClientOptionsBuilder()
                 .WithCredentials("admin", "Admin123")
                 .WithTls()
-                .WithTcpServer(BrokerIP, 8883)
+                .WithTcpServer("0b5f2477a4fb4160bf4cabc96ee41a39.s1.eu.hivemq.cloud", 8883)
                 .WithCleanSession()
                 .Build();
 
