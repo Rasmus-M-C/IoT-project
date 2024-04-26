@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "mcalIM3biUg+HlCkmDbje7/68j06xGEbd3fvLXvZ0P5nq2XKZ2lzMnlIYWDWDk6x1nEQP8t04v8rRjIUcunZoQ==",
+  "dgSpecHash": "jyn+nl2T9G5FNH7m8N0Emg0aJCf9wfygPkHVQCdMcklANsELbcMRiYVaIsmpKfmlvkWxoMn93nH7gIvEpXs/Fg==",
   "success": true,
   "projectFilePath": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\Sensor\\Sensor.csproj",
   "expectedPackageFiles": [
@@ -51,8 +51,7 @@
     "C:\\Users\\m-esp\\.nuget\\packages\\system.security.cryptography.protecteddata\\8.0.0\\system.security.cryptography.protecteddata.8.0.0.nupkg.sha512",
     "C:\\Users\\m-esp\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
     "C:\\Users\\m-esp\\.nuget\\packages\\system.text.json\\7.0.2\\system.text.json.7.0.2.nupkg.sha512",
-    "C:\\Users\\m-esp\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\m-esp\\.nuget\\packages\\microsoft.netcore.app.host.linux-arm\\5.0.17\\microsoft.netcore.app.host.linux-arm.5.0.17.nupkg.sha512"
+    "C:\\Users\\m-esp\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
   ],
   "logs": []
 }
