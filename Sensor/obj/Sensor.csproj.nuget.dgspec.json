@@ -65,12 +65,23 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.linux-arm",
+              "version": "[5.0.17, 5.0.17]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
           "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/5.0.408/RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "linux-arm": {
+          "#import": []
         }
       }
     },
@@ -131,12 +142,23 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.linux-arm",
+              "version": "[5.0.17, 5.0.17]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
           "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/5.0.408/RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "linux-arm": {
+          "#import": []
         }
       }
     }
