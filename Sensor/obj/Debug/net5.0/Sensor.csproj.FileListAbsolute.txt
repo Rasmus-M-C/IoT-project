@@ -31,7 +31,6 @@ C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Debug\net5.0\CsvHelper.dll
 C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Debug\net5.0\InfluxDB.Client.dll
 C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Debug\net5.0\InfluxDB.Client.Core.dll
 C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Debug\net5.0\JsonSubTypes.dll
-C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Debug\net5.0\M2Mqtt.Net.dll
 C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Debug\net5.0\Microsoft.Extensions.Caching.Abstractions.dll
 C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Debug\net5.0\Microsoft.Extensions.Caching.Memory.dll
@@ -196,3 +195,11 @@ C:\Users\m-esp\Documents\IoTProject\IoT-project\Sensor\obj\Debug\net5.0\Raspberr
 C:\Users\m-esp\Documents\IoTProject\IoT-project\Sensor\obj\Debug\net5.0\ref\RaspberryPI.dll
 C:\Users\m-esp\Documents\IoTProject\IoT-project\Sensor\obj\Debug\net5.0\RaspberryPI.pdb
 C:\Users\m-esp\Documents\IoTProject\IoT-project\Sensor\obj\Debug\net5.0\Sensor.genruntimeconfig.cache
+C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Debug\net5.0\Apache.Arrow.dll
+C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Debug\net5.0\Apache.Arrow.Flight.dll
+C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Debug\net5.0\Google.Protobuf.dll
+C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Debug\net5.0\Grpc.Core.Api.dll
+C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Debug\net5.0\Grpc.Net.Client.dll
+C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Debug\net5.0\Grpc.Net.Common.dll
+C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Debug\net5.0\InfluxDB3.Client.dll
+C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll

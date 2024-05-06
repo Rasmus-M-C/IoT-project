@@ -12,11 +12,11 @@ namespace Subscriber
     class Program
     {
         // Function to start a location of subscribers
-        private static async Task SetupAndStartSubscribers(MQTTsub client, string location)
+        private static async Task SetupAndStartSubscribers(MQTTsub client, string location, Subscriber.InfluxDB DB)
         {
-            await client.Subscribe($"{location}/humidity");
-            await client.Subscribe($"{location}/pressure");
-            await client.Subscribe($"{location}/temperature");
+            await client.Subscribe($"{location}/humidity", DB);
+            await client.Subscribe($"{location}/pressure", DB);
+            await client.Subscribe($"{location}/temperature", DB);
         }
         static async Task Main(string[] args)
         {
@@ -32,17 +32,17 @@ namespace Subscriber
             }
 
             await client.SubscribeAsync("home");
-
-            InfluxDB dbClient = new InfluxDB();
-            await dbClient.NewInfluxDBEntry(18f, "Mikkel", "test");
             */
+            InfluxDB dbClient = new InfluxDB();
+            //await dbClient.NewInfluxDBEntry(18f, "Mikkel", "test");
+            
             MQTTsub client = new MQTTsub();
             await client.ConnectAsync();
             
-           //await client.Subscribe("rasmus_room/humidity");
+            //await client.Subscribe("rasmus_room/humidity");
             //await client.Subscribe("rasmus_room/pressure");
             //await client.Subscribe("rasmus_room/temperature");
-            await SetupAndStartSubscribers(client, "Edison");
+            await SetupAndStartSubscribers(client, "Edison", dbClient);
             Console.ReadKey();
             Console.WriteLine("Press any key to exit");
             // Continuously receive messages from the "home" topic

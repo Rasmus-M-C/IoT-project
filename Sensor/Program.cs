@@ -28,10 +28,10 @@ namespace RaspberryPi
             //await client.ConnectAsync();
             HumiditySensor sensor = new HumiditySensor();
             PressureSensor psensor = new PressureSensor();
-            TempSensor tsensor = new TempSensor();
-            HumiditySensor kitchen_sensorh = new HumiditySensor();
-            PressureSensor kitchen_sensorp = new PressureSensor();
-            TempSensor kitchen_sensort = new TempSensor();
+            //TempSensor tsensor = new TempSensor();
+            //HumiditySensor kitchen_sensorh = new HumiditySensor();
+            //PressureSensor kitchen_sensorp = new PressureSensor();
+            //TempSensor kitchen_sensort = new TempSensor();
             MQTTClient client = new MQTTClient();
             await client.ConnectAsync();
             /*
