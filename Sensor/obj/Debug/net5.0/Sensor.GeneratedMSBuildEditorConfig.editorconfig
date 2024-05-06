@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = RaspberryPi
-build_property.ProjectDir = /Users/asgerleth/RiderProjects/IoT-project/Sensor/
+build_property.ProjectDir = C:\Users\m-esp\Documents\IoTProject\IoT-project\Sensor\

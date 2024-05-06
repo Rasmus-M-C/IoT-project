@@ -1978,19 +1978,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/asgerleth/.nuget/packages/": {}
+    "C:\\Users\\m-esp\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/asgerleth/RiderProjects/IoT-project/Subscriber/Subscriber.csproj",
+      "projectUniqueName": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\Subscriber\\Subscriber.csproj",
       "projectName": "Subscriber",
-      "projectPath": "/Users/asgerleth/RiderProjects/IoT-project/Subscriber/Subscriber.csproj",
-      "packagesPath": "/Users/asgerleth/.nuget/packages/",
-      "outputPath": "/Users/asgerleth/RiderProjects/IoT-project/Subscriber/obj/",
+      "projectPath": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\Subscriber\\Subscriber.csproj",
+      "packagesPath": "C:\\Users\\m-esp\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\Subscriber\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/asgerleth/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\m-esp\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -2002,8 +2002,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "/Users/asgerleth/RiderProjects/IoT-project/Sensor/Sensor.csproj": {
-              "projectPath": "/Users/asgerleth/RiderProjects/IoT-project/Sensor/Sensor.csproj"
+            "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\Sensor\\Sensor.csproj": {
+              "projectPath": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\Sensor\\Sensor.csproj"
             }
           }
         }
@@ -2042,7 +2042,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/5.0.408/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\m-esp\\.dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
   }

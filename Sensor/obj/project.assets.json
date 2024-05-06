@@ -1958,19 +1958,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/asgerleth/.nuget/packages/": {}
+    "C:\\Users\\m-esp\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/asgerleth/RiderProjects/IoT-project/Sensor/Sensor.csproj",
+      "projectUniqueName": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\Sensor\\Sensor.csproj",
       "projectName": "RaspberryPI",
-      "projectPath": "/Users/asgerleth/RiderProjects/IoT-project/Sensor/Sensor.csproj",
-      "packagesPath": "/Users/asgerleth/.nuget/packages/",
-      "outputPath": "/Users/asgerleth/RiderProjects/IoT-project/Sensor/obj/",
+      "projectPath": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\Sensor\\Sensor.csproj",
+      "packagesPath": "C:\\Users\\m-esp\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\Sensor\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/asgerleth/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\m-esp\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -1982,8 +1982,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "/Users/asgerleth/RiderProjects/IoT-project/MQTT/MQTT.csproj": {
-              "projectPath": "/Users/asgerleth/RiderProjects/IoT-project/MQTT/MQTT.csproj"
+            "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\MQTT\\MQTT.csproj": {
+              "projectPath": "C:\\Users\\m-esp\\Documents\\IoTProject\\IoT-project\\MQTT\\MQTT.csproj"
             }
           }
         }
@@ -2022,7 +2022,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/5.0.408/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\m-esp\\.dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
   }

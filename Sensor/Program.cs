@@ -21,10 +21,6 @@ namespace RaspberryPi
             client.StartPublisher(sensor, 5, $"{location}/humidity");
             client.StartPublisher(psensor, 5, $"{location}/pressure");
             client.StartPublisher(tsensor, 5, $"{location}/temperature");
-            
-            await client.Subscribe($"{location}/humidity");
-            await client.Subscribe($"{location}/pressure");
-            await client.Subscribe($"{location}/temperature");
         }
         static async Task Main()
         {
@@ -38,7 +34,7 @@ namespace RaspberryPi
             TempSensor kitchen_sensort = new TempSensor();
             MQTTClient client = new MQTTClient();
             await client.ConnectAsync();
-
+            /*
             client.StartPublisher(sensor, 5, "rasmus_room/humidity");
             client.StartPublisher(psensor, 5, "rasmus_room/pressure");
             client.StartPublisher(tsensor, 5, "rasmus_room/temperature");
@@ -46,8 +42,8 @@ namespace RaspberryPi
             await client.Subscribe("rasmus_room/humidity");
             await client.Subscribe("rasmus_room/pressure");
             await client.Subscribe("rasmus_room/temperature");
-            
-            //await SetupAndStartPublishers(client, "Edison");
+            */
+            await SetupAndStartPublishers(client, "Edison");
             Console.ReadKey();
             Console.WriteLine("Press any key to exit");
 
