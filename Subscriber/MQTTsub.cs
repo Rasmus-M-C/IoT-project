@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MQTTnet.Packets;
 using MQTTnet.Protocol;
 using RaspberryPi;
-
+using InfluxDB3.Client;
 namespace MQTTService
 {
     public class MQTTsub
@@ -84,7 +84,7 @@ namespace MQTTService
             Console.WriteLine($"Published message to {topic}: {payload}");
         }
 
-        public async Task Subscribe(string topic)
+        public async Task Subscribe(string topic, Subscriber.InfluxDB DB)
         {
             var topicFilter = new MqttTopicFilterBuilder()
                 .WithTopic(topic)
@@ -96,7 +96,9 @@ namespace MQTTService
 
             Client.ApplicationMessageReceivedAsync += async e =>
             {
+                await DB.NewInfluxDBEntry(BitConverter.ToSingle(e.ApplicationMessage.Payload, 0), topic.Split('/')[0], topic.Split('/')[1]);
                 // Offload the processing to a separate task
+                /*
                 await Task.Run(() =>
                 {
                     
@@ -107,13 +109,14 @@ namespace MQTTService
                     {
                         float receivedValue = BitConverter.ToSingle(payloadBytes, 0);
                         Console.WriteLine($"Received float value {receivedValue} on topic: {e.ApplicationMessage.Topic}");
+                        
                     }
                     else
                     {
                         // Handle other cases differently or log an error
                         Console.WriteLine("Received payload is not of expected length for a float value.");
                     }
-                });
+                });*/
             };
         }
     }

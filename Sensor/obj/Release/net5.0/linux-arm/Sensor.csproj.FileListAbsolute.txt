@@ -48,7 +48,6 @@ C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Release\net5.0\linux-arm\Csv
 C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Release\net5.0\linux-arm\InfluxDB.Client.dll
 C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Release\net5.0\linux-arm\InfluxDB.Client.Core.dll
 C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Release\net5.0\linux-arm\JsonSubTypes.dll
-C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Release\net5.0\linux-arm\M2Mqtt.Net.dll
 C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Release\net5.0\linux-arm\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Release\net5.0\linux-arm\Microsoft.Extensions.Caching.Abstractions.dll
 C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Release\net5.0\linux-arm\Microsoft.Extensions.Caching.Memory.dll
@@ -160,3 +159,11 @@ C:\Users\m-esp\Documents\IoTProject\IoT-project\Sensor\obj\Release\net5.0\linux-
 C:\Users\m-esp\Documents\IoTProject\IoT-project\Sensor\obj\Release\net5.0\linux-arm\ref\RaspberryPI.dll
 C:\Users\m-esp\Documents\IoTProject\IoT-project\Sensor\obj\Release\net5.0\linux-arm\RaspberryPI.pdb
 C:\Users\m-esp\Documents\IoTProject\IoT-project\Sensor\obj\Release\net5.0\linux-arm\Sensor.genruntimeconfig.cache
+C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Release\net5.0\linux-arm\Apache.Arrow.dll
+C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Release\net5.0\linux-arm\Apache.Arrow.Flight.dll
+C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Release\net5.0\linux-arm\Google.Protobuf.dll
+C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Release\net5.0\linux-arm\Grpc.Core.Api.dll
+C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Release\net5.0\linux-arm\Grpc.Net.Client.dll
+C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Release\net5.0\linux-arm\Grpc.Net.Common.dll
+C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Release\net5.0\linux-arm\InfluxDB3.Client.dll
+C:\Users\rasmu\RiderProjects\IoT-project\Sensor\bin\Release\net5.0\linux-arm\System.Diagnostics.DiagnosticSource.dll
