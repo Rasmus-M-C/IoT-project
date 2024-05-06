@@ -53,15 +53,27 @@ namespace MQTTService
         }
 
         // The publisher method, now suitable for concurrent execution
-        public async Task Publisher(ISensor sensor, int interval, string topic)
+        public async Task Publisher(ISensor sensor, int interval, string topic, float? prevval = null)
         {
+            
             if (interval < 1)
                 throw new Exception("Interval to broadcast messages must be greater than 0.");
             await Task.Delay(interval * 1000); // Delay the first message
 
             while (true)
             {
+                
                 var value = sensor.Measure(); // Move measurement inside the loop
+                //calculate if it is an outlier, difference between current and previous value must be less than 10%
+                if (prevval != null)
+                {
+                    if (Math.Abs((float)prevval - value) / value > 0.1)
+                    {
+                        Console.WriteLine("Outlier detected, value: " + value + " previous value: " + prevval);
+                        continue;
+                    }
+                }
+                prevval = value;
                 await PublishMessageAsync(value, topic);
                 await Task.Delay(interval * 1000);
             }

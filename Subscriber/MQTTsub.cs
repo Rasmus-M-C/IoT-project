@@ -99,6 +99,7 @@ namespace MQTTService
                 // Offload the processing to a separate task
                 await Task.Run(() =>
                 {
+                    
                     var payloadBytes = e.ApplicationMessage.PayloadSegment.ToArray();
 
                     // Ensure the payload is exactly 4 bytes, the size of a single-precision float

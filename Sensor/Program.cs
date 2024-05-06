@@ -34,16 +34,19 @@ namespace RaspberryPi
             TempSensor kitchen_sensort = new TempSensor();
             MQTTClient client = new MQTTClient();
             await client.ConnectAsync();
-            /*
+            
             client.StartPublisher(sensor, 5, "rasmus_room/humidity");
             client.StartPublisher(psensor, 5, "rasmus_room/pressure");
             client.StartPublisher(tsensor, 5, "rasmus_room/temperature");
-            
+            /*
             await client.Subscribe("rasmus_room/humidity");
             await client.Subscribe("rasmus_room/pressure");
             await client.Subscribe("rasmus_room/temperature");
             */
-            await SetupAndStartPublishers(client, "Edison");
+            //await SetupAndStartPublishers(client, "Edison");
+            await client.Subscribe("rasmus_room/humidity");
+            await client.Subscribe("rasmus_room/pressure");
+            await client.Subscribe("rasmus_room/temperature");
             Console.ReadKey();
             Console.WriteLine("Press any key to exit");
 
