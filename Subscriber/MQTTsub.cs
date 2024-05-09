@@ -63,7 +63,7 @@ namespace MQTTService
             {
                 var value = sensor.Measure(); // Move measurement inside the loop
                 await PublishMessageAsync(value, topic);
-                await Task.Delay(interval * 1000);
+                await Task.Delay(interval * 5000);
             }
         }
         public async Task PublishMessageAsync(float payload, string topic)
@@ -96,9 +96,11 @@ namespace MQTTService
 
             Client.ApplicationMessageReceivedAsync += async e =>
             {
-                await DB.NewInfluxDBEntry(BitConverter.ToSingle(e.ApplicationMessage.Payload, 0), topic.Split('/')[0], topic.Split('/')[1]);
+                var payloadBytes = e.ApplicationMessage.PayloadSegment.ToArray();
+                await DB.NewInfluxDBEntry(BitConverter.ToSingle(payloadBytes, 0), topic.Split('/')[0], topic.Split('/')[1]);
+                Console.WriteLine($"Received float value {BitConverter.ToSingle(payloadBytes, 0)} on topic: {e.ApplicationMessage.Topic}");
                 // Offload the processing to a separate task
-                /*
+                /*;
                 await Task.Run(() =>
                 {
                     

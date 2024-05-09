@@ -28,25 +28,29 @@ namespace RaspberryPi
             //await client.ConnectAsync();
             HumiditySensor sensor = new HumiditySensor();
             PressureSensor psensor = new PressureSensor();
-            //TempSensor tsensor = new TempSensor();
+            TempSensor tsensor = new TempSensor();
+            HumiditySensor sensor2 = new HumiditySensor();
+            PressureSensor psensor2 = new PressureSensor();
+            TempSensor tsensor2 = new TempSensor();
             //HumiditySensor kitchen_sensorh = new HumiditySensor();
             //PressureSensor kitchen_sensorp = new PressureSensor();
             //TempSensor kitchen_sensort = new TempSensor();
             MQTTClient client = new MQTTClient();
+            MQTTClient client2 = new MQTTClient();
             await client.ConnectAsync();
             
-            client.StartPublisher(sensor, 5, "rasmus_room/humidity");
-            client.StartPublisher(psensor, 5, "rasmus_room/pressure");
-            client.StartPublisher(tsensor, 5, "rasmus_room/temperature");
+            client.StartPublisher(sensor, 3, "Edison/humidity");
+            client.StartPublisher(psensor, 6, "Edison/pressure");
+            client.StartPublisher(tsensor, 9, "Edison/temperature");
+            client2.StartPublisher(sensor2, 4, "Nygaard/humidity");
+            client2.StartPublisher(psensor2, 7, "Nygaard/pressure");
+            client2.StartPublisher(tsensor2, 10, "Nygaard/temperature");
             /*
             await client.Subscribe("rasmus_room/humidity");
             await client.Subscribe("rasmus_room/pressure");
             await client.Subscribe("rasmus_room/temperature");
             */
             //await SetupAndStartPublishers(client, "Edison");
-            await client.Subscribe("rasmus_room/humidity");
-            await client.Subscribe("rasmus_room/pressure");
-            await client.Subscribe("rasmus_room/temperature");
             Console.ReadKey();
             Console.WriteLine("Press any key to exit");
 

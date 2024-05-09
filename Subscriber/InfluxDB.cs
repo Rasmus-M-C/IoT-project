@@ -33,7 +33,7 @@ namespace Subscriber
                 .SetTag("location", location)
                 .SetTag("type", type)
                 .SetField("value", value)
-                .SetTimestamp(DateTime.Now.AddHours(+2));
+                .SetTimestamp(DateTime.Now);
             await this.dbClient.WritePointAsync(point: point);
         }
         /*
