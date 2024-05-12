@@ -96,29 +96,27 @@ namespace MQTTService
 
             Client.ApplicationMessageReceivedAsync += async e =>
             {
-                var payloadBytes = e.ApplicationMessage.PayloadSegment.ToArray();
-                await DB.NewInfluxDBEntry(BitConverter.ToSingle(payloadBytes, 0), topic.Split('/')[0], topic.Split('/')[1]);
-                Console.WriteLine($"Received float value {BitConverter.ToSingle(payloadBytes, 0)} on topic: {e.ApplicationMessage.Topic}");
-                // Offload the processing to a separate task
-                /*;
-                await Task.Run(() =>
+                // Check if the received message's topic matches the subscribed topic
+                if (e.ApplicationMessage.Topic == topic)
                 {
-                    
                     var payloadBytes = e.ApplicationMessage.PayloadSegment.ToArray();
 
-                    // Ensure the payload is exactly 4 bytes, the size of a single-precision float
+                    // Assuming payload is expected to be a single-precision float and exactly 4 bytes long
                     if (payloadBytes.Length == 4)
                     {
                         float receivedValue = BitConverter.ToSingle(payloadBytes, 0);
                         Console.WriteLine($"Received float value {receivedValue} on topic: {e.ApplicationMessage.Topic}");
-                        
+
+                        // Call to a method to handle data insertion to InfluxDB
+                        await DB.NewInfluxDBEntry(receivedValue, 
+                                            topic.Split('/')[0], 
+                                            topic.Split('/')[1]);
                     }
                     else
                     {
-                        // Handle other cases differently or log an error
                         Console.WriteLine("Received payload is not of expected length for a float value.");
                     }
-                });*/
+                }
             };
         }
     }

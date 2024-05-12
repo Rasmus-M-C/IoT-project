@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gP8eI2XBjVKM3j9EoUQsMKvyfvuVNWv1FEJRivdZA0UrQ2q5yWySBcCD57Ah3824NbqqlAkLLZWPVW6bK7vZrw==",
+  "dgSpecHash": "useR8iFB9fqEmSggvymeCGC+crpWd8MiEGIjZIVLsfT6JhoqGHRCR4EsKDZWZ4MC2osLHNNgn5hOB/k7HB5lFA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rasmu\\RiderProjects\\IoT-project\\Sensor\\Sensor.csproj",
+  "projectFilePath": "C:\\Users\\rasmu\\RiderProjects\\Sensor\\Sensor\\Sensor.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rasmu\\.nuget\\packages\\apache.arrow\\15.0.2\\apache.arrow.15.0.2.nupkg.sha512",
     "C:\\Users\\rasmu\\.nuget\\packages\\apache.arrow.flight\\15.0.2\\apache.arrow.flight.15.0.2.nupkg.sha512",
@@ -51,8 +51,7 @@
     "C:\\Users\\rasmu\\.nuget\\packages\\system.security.cryptography.protecteddata\\8.0.0\\system.security.cryptography.protecteddata.8.0.0.nupkg.sha512",
     "C:\\Users\\rasmu\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
     "C:\\Users\\rasmu\\.nuget\\packages\\system.text.json\\7.0.2\\system.text.json.7.0.2.nupkg.sha512",
-    "C:\\Users\\rasmu\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\rasmu\\.nuget\\packages\\microsoft.netcore.app.host.linux-arm\\5.0.17\\microsoft.netcore.app.host.linux-arm.5.0.17.nupkg.sha512"
+    "C:\\Users\\rasmu\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
   ],
   "logs": []
 }

@@ -29,10 +29,11 @@ namespace Subscriber
         // Make fields for each sensor reading type: humidity, pressure, temperature.
         public async Task NewInfluxDBEntry(float value, string location, string type)
         {
-            var point = PointData.Measurement("measurement")
+            DateTime time = DateTime.Now;
+            DateTime newTime = time.AddHours(2);
+            var point = PointData.Measurement("data8")
                 .SetTag("location", location)
-                .SetTag("type", type)
-                .SetField("value", value)
+                .SetField(type, value)
                 .SetTimestamp(DateTime.Now);
             await this.dbClient.WritePointAsync(point: point);
         }
