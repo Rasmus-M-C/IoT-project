@@ -1,7 +1,0 @@
-C:\Users\rasmu\RiderProjects\Sensor\Sensor\bin\Release\net5.0\linux-arm\publish\MQTT.exe
-C:\Users\rasmu\RiderProjects\Sensor\Sensor\bin\Release\net5.0\linux-arm\publish\MQTT.dll
-C:\Users\rasmu\RiderProjects\Sensor\Sensor\bin\Release\net5.0\linux-arm\publish\MQTT.deps.json
-C:\Users\rasmu\RiderProjects\Sensor\Sensor\bin\Release\net5.0\linux-arm\publish\MQTT.runtimeconfig.json
-C:\Users\rasmu\RiderProjects\Sensor\Sensor\bin\Release\net5.0\linux-arm\publish\MQTT.pdb
-C:\Users\rasmu\RiderProjects\Sensor\Sensor\bin\Release\net5.0\linux-arm\publish\M2Mqtt.Net.dll
-C:\Users\rasmu\RiderProjects\Sensor\Sensor\bin\Release\net5.0\linux-arm\publish\MQTTnet.dll
