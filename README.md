@@ -15,6 +15,7 @@ The publish folder can be found by right-clicking in the Solution menu on the le
 And insert that as "publish folder from rider", remember the /* on the end.
 
 You have to create the folder on the Pi before publishing and then insert that as "FolderOnPi".
+And you have to get the RaspberryPi IP and insert that as "raspberryPiIP".
 To copy the files to the Pi we use SCP with the following command:
 ```
 scp -r "publish folder from rider"/* admin@raspberryPiIP:~/FolderOnPi
