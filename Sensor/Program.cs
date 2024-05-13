@@ -32,17 +32,15 @@ namespace RaspberryPi
             HumiditySensor sensor2 = new HumiditySensor();
             PressureSensor psensor2 = new PressureSensor();
             TempSensor tsensor2 = new TempSensor();
-            //HumiditySensor kitchen_sensorh = new HumiditySensor();
-            //PressureSensor kitchen_sensorp = new PressureSensor();
-            //TempSensor kitchen_sensort = new TempSensor();
             MQTTClient client = new MQTTClient();
             MQTTClient client2 = new MQTTClient();
+            
             await client.ConnectAsync();
             
-            client.StartPublisher(sensor, 3, "Edison/humidity");
-            client.StartPublisher(psensor, 6, "Edison/pressure");
-            client.StartPublisher(tsensor, 9, "Edison/temperature");
-            client2.StartPublisher(sensor2, 4, "Nygaard/humidity");
+            client.StartPublisher(sensor, 2, "Edison/humidity");
+            client.StartPublisher(psensor, 3, "Edison/pressure");
+            client.StartPublisher(tsensor, 5, "Edison/temperature");
+            client2.StartPublisher(sensor2, 3, "Nygaard/humidity");
             client2.StartPublisher(psensor2, 7, "Nygaard/pressure");
             client2.StartPublisher(tsensor2, 10, "Nygaard/temperature");
             /*
