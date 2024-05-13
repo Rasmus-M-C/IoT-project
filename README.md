@@ -8,5 +8,8 @@ First one need to setup the rider environment to compile the code to a linux-arm
 
 ## How to compile and run the code on the RasperryPi
 ```
-Fir
+First you have to open the project in Rider/Visual Studio
+```
+```
+Then
 ```
