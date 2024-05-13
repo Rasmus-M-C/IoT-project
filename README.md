@@ -11,8 +11,8 @@ First you build and publish the solution.
 Then you copy the files over to the RaspberryPi, and run the solution via SSH on the Pi.
 
 First you need the publish folder.
-The publish folder can be found by right-clicking in the Solution menu on the left, and choosing 
-"Publish" -> "Local folder". 
+The publish folder can be found by right-clicking in the Solution menu on the left, 
+and choosing "Publish" -> "Local folder". 
 Then you can copy the "Target Location".
 And insert that as "publish folder from rider", remember the /* on the end.
 
