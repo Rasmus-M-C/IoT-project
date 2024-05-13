@@ -23,7 +23,8 @@ scp -r "publish folder from rider"/* admin@raspberryPiIP:~/FolderOnPi
 
 After it has been published and copied over, you can run the solution on the Pi.
 
-This is done by moving into the folder you copied to (FolderOnPi). For the sensor program you run:
+This is done by moving into the folder you copied to (FolderOnPi). 
+For the sensor program you run:
 ```
 ./RaspberryPi
 ```
