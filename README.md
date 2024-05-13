@@ -26,7 +26,7 @@ scp -r "publish folder from rider"/* admin@raspberryPiIP:~/FolderOnPi
 You have to run the Sensor program on the RaspberryPi and a Subscriber on your local machine. This is done by selecting the "Subscriber" configuration at the top right in rider and then clicking the green arrow to run the configuration.
 
 After it has been published and copied over, you can run the solution on the Pi.
-This is done by moving into the folder you copied to (FolderOnPi). 
+This is done by moving into the folder you copied to (FolderOnPi) using cd. 
 For the sensor program you run:
 ```
 ./RaspberryPi
