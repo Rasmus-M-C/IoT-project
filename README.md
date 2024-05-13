@@ -8,12 +8,16 @@ First one need to setup the rider environment to compile the code to a linux-arm
 
 ## How to compile and run the code on the RasperryPi
 First you build and publish the solution.
-Then you copy the files over to the RaspberryPi, and run the solution via SSH on the Pi.
+Then you copy the files over to the RaspberryPi, and run the solution via SSH on the Pi.  
+This is done with scp using the following command:
+```
+scp -r "publish folder from rider"/* admin@raspberryPiIP:~/FolderOnPi
+```
 
 ### Publish folder
 First you need the publish folder.  
-The publish folder can be found by right-clicking in the Solution menu on the left,  
-and choosing "Publish" -> "Local folder". Then you can copy the "Target Location". 
+The publish folder can be found by opening the Project in rider and right-clicking in the Solution menu on the left by  
+choosing "Publish" -> "Local folder" and copying the "Target Location". 
 When this is copied you insert that as "publish folder from rider", remember the /* on the end.  
 An example of a target location could be 
 ```
@@ -21,13 +25,15 @@ An example of a target location could be
 ```
 ### Create folder on Pi
 You have to create the folder on the Pi before publishing and then insert that as "FolderOnPi".  
+An example name could be ProjectDir.
 
 ### RaspberryPi IP
 Remember to get the RaspberryPi IP and insert that as "raspberryPiIP".  
+An example could be 192.168.129.299
 
-Finally you can insert it in the following command to copy the files to the Pi with SCP:
+Finally you can insert it in the command to copy the files to the Pi with SCP. With the examples in this guide the final command would look like this:
 ```
-scp -r "publish folder from rider"/* admin@raspberryPiIP:~/FolderOnPi
+scp -r /Users/username/RiderProjects/Project/Sensor/bin/Release/net5.0/publish/* admin@192.168.129.299:~/ProjectDir
 ```
 ### Run the programs
 
