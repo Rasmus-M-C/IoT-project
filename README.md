@@ -21,14 +21,15 @@ To copy the files to the Pi we use SCP with the following command:
 scp -r "publish folder from rider"/* admin@raspberryPiIP:~/FolderOnPi
 ```
 
-After it has been published and copied over, you can run the solution on the Pi.
+You have to run the Sensor program on the RaspberryPi and a Subscriber on your local machine. This is done by selecting the "Subscriber" configuration at the top right in rider and then clicking the green arrow to run the configuration.
 
+After it has been published and copied over, you can run the solution on the Pi.
 This is done by moving into the folder you copied to (FolderOnPi). 
 For the sensor program you run:
 ```
 ./RaspberryPi
 ```
 
-You have to run the Sensor program on the RaspberryPi and a Subscriber on your local machine. This is done by selecting the "Subscriber" configuration at the top right in rider and then clicking the green arrow to run the configuration.
+
 
 Then the program will run until canceled by ctrl+c
