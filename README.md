@@ -3,7 +3,7 @@
 ## Network
 RaspberryPi and host computer needs to be on the same network. This can be done using a mobile hotspot.
 The following settings should be used for the hotspot  
-Name: RCDA_2G
+Name: RCDA_2G  
 Pass: DANIELOGRASMUSNR6814
 
 ## Rider environment
