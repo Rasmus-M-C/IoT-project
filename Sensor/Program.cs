@@ -36,6 +36,7 @@ namespace RaspberryPi
             MQTTClient client2 = new MQTTClient();
             
             await client.ConnectAsync();
+            await client2.ConnectAsync();
             
             client.StartPublisher(sensor, 2, "Edison/humidity");
             client.StartPublisher(psensor, 3, "Edison/pressure");
