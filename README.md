@@ -31,13 +31,12 @@ You have to create the folder on the Pi before publishing and then insert that a
 An example name could be ProjectDir.
 
 ### RaspberryPi IP
-Remember to get the RaspberryPi IP and insert that as "raspberryPiIP".  
-An example could be 192.168.129.299
 
 Finally you can insert it in the command to copy the files to the Pi with SCP. With the examples in this guide the final command would look like this:
 ```
-scp -r /Users/username/RiderProjects/Project/Sensor/bin/Release/net5.0/publish/* admin@192.168.129.299:~/ProjectDir
+scp -r /Users/username/RiderProjects/Project/Sensor/bin/Release/net5.0/publish/* admin@raspberrypi:~/ProjectDir
 ```
+If this does not work you can replace raspberrypi with its IP adresse. An example could be 192.168.129.299
 ### Run the programs
 
 You have to run the Sensor program on the RaspberryPi and a Subscriber on your local machine.  
