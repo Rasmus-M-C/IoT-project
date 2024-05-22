@@ -14,7 +14,7 @@ First you build and publish the solution.
 Then you copy the files over to the RaspberryPi, and run the solution via SSH on the Pi.  
 This is done with scp using the following command:
 ```
-scp -r "publish folder from rider"/* admin@raspberryPiIP:~/FolderOnPi
+scp -r "publish folder from rider"/* admin@raspberrypi:~/FolderOnPi
 ```
 
 ### Publish folder
