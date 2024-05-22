@@ -15,7 +15,7 @@ namespace MQTTService
     {
         public IMqttClient Client { get; set; }
         private string BrokerIP { get; set; }
-
+        
         public MQTTClient(string brokerIp = "0b5f2477a4fb4160bf4cabc96ee41a39.s1.eu.hivemq.cloud")
         {
             Console.WriteLine(brokerIp);
@@ -59,13 +59,13 @@ namespace MQTTService
         {
             if (interval < 1)
                 throw new Exception("Interval to broadcast messages must be greater than 0.");
-            await Task.Delay(interval * 1000); // Delay the first message
+            await Task.Delay(interval * 100); // Delay the first message
 
             while (true)
             {
-                var value = sensor.Measure(); // Move measurement inside the loop
+                float value = sensor.Measure();
                 await PublishMessageAsync(value, topic);
-                await Task.Delay(interval * 2000);
+                await Task.Delay(interval * 1000);
             }
         }
 

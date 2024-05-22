@@ -27,76 +27,16 @@ namespace Subscriber
         }
 
         // Make fields for each sensor reading type: humidity, pressure, temperature.
-        public async Task NewInfluxDBEntry(float value, string location, string type)
+        public async Task NewInfluxDBEntry(float value, string location, string room, string type)
         {
             DateTime time = DateTime.Now;
             DateTime newTime = time.AddHours(2);
-            var point = PointData.Measurement("data8")
+            var point = PointData.Measurement("wdata")
                 .SetTag("location", location)
+                .SetTag("room", room)
                 .SetField(type, value)
                 .SetTimestamp(DateTime.Now);
             await this.dbClient.WritePointAsync(point: point);
         }
-        /*
-        public static void InfluxDBWrite(string sensorID ,float temp, float press, float humidity)
-        {
-            const string host = "";
-            string authToken = Environment.GetEnvironmentVariable("API_TOKEN");
-            string bucket = "weatherdata";
-
-            using var client = new InfluxDBClient(host, token: authToken, database: bucket);
-            string org = "WeatherDay_CO";
-
-
-            var point = PointData.Measurement("temperature")
-                .SetTag("location", "west")
-                .SetField("value", 55.15)
-                .SetTimestamp(DateTime.UtcNow.AddSeconds(-10));
-            await client.WritePointAsync(point: point);
-
-            {
-                // Define data points
-                var dataPoints = new List<PointData>
-                {
-                    CreatePoint("sensordata", sensorID,new Dictionary<string, object> {
-                        {"temp", temp },
-                        {"pressure", press},
-                        {"humidity", humidity}// Assuming it is in float
-                    }),
-                };
-                // Write the point to InfluxDB
-                var writeApi = client.GetWriteApi();
-                writeApi.WritePoints(dataPoints, bucket,org);
-            }
-
-            Console.WriteLine("Data written successfully to InfluxDB.");
-        }
-
-        static PointData CreatePoint(string measurement, string location ,Dictionary<string, object> fields)
-        {
-            var builder = PointData.Measurement(measurement);
-            builder.Tag("location", location);
-            foreach (var field in fields)
-            {
-                if (field.Value is string)
-                {
-                    builder = builder.Field(field.Key, (string)field.Value);
-                }
-                else if (field.Value is double)
-                {
-                    builder = builder.Field(field.Key, (double)field.Value);
-                }
-                else if (field.Value is long)
-                {
-                    builder = builder.Field(field.Key, (long)field.Value);
-                }
-                else
-                {
-                    throw new ArgumentException($"Unsupported type for field '{field.Key}'.");
-                }
-            }
-
-            return builder.Timestamp(DateTime.UtcNow, WritePrecision.Ms);
-        } */
     }
 }
