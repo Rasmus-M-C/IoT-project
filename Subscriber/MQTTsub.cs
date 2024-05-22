@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using MQTTnet;
 using MQTTnet.Client;
@@ -8,20 +9,24 @@ using MQTTnet.Protocol;
 using RaspberryPi;
 
 using InfluxDB3.Client;
+using Subscriber;
+
 namespace MQTTService
 {
     public class MQTTsub
     {
         public IMqttClient Client { get; set; }
         private string BrokerIP { get; set; }
-
-        public MQTTsub(string brokerIp = "0b5f2477a4fb4160bf4cabc96ee41a39.s1.eu.hivemq.cloud")
+        public StatsQueue StatsQueue { get; set; }
+        public MQTTsub(string brokerIp = "0b5f2477a4fb4160bf4cabc96ee41a39.s1.eu.hivemq.cloud", int capacity = 10)
         {
             Console.WriteLine(brokerIp);
             BrokerIP = brokerIp;
             var mqttFactory = new MqttFactory();
             Client = mqttFactory.CreateMqttClient();
+            StatsQueue = new StatsQueue(capacity);
         }
+
         
         // Method to calculate Median of an unsorted array
         // Always even number as it has 10 elements
@@ -29,7 +34,7 @@ namespace MQTTService
         {
             // Precondition is that the array has an even amount of elements
             if (n % 2 != 0)
-                throw new Exception("The array must have an even amount of elements to calculate the Median.");
+                throw new Exception("The array must have an uneven amount of elements to calculate the Median.");
             // First we sort
             // the array
             Array.Sort(a);
@@ -108,7 +113,8 @@ namespace MQTTService
             Console.WriteLine($"Published message to {topic}: {payload}");
         }
         
-        // Setting the 10 first elements comming from the sensor as the initial window
+        
+        // Setting the 10 first elements coming from the sensor as the initial window
         private float InitialMedian(float[] window)
         {
             float Median = 0;
@@ -148,16 +154,8 @@ namespace MQTTService
                         // Adding random values to simulate sensor behaviour
                         receivedValue += SimulateSensorBehaviour(topic.Split('/')[0]);
                         //Console.WriteLine("Received value after adding random value: " + receivedValue);
-                        if (counter < 10)
-                        {
-                            window[counter] = receivedValue;
-                            counter++;
-                        }
-                        else if (OutlierDetection(this.Mean,receivedValue, window, topic.Split('/')[2], counter))
-                        {
-                            Console.WriteLine("Outlier detected");
-                        }
-                        else
+                        
+                        if
                         {
                             Console.WriteLine(receivedValue);
                             await DB.NewInfluxDBEntry(receivedValue, 
