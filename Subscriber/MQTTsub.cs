@@ -4,6 +4,7 @@ using System.Threading;
 using MQTTnet;
 using MQTTnet.Client;
 using System.Threading.Tasks;
+using Apache.Arrow.Memory;
 using MQTTnet.Packets;
 using MQTTnet.Protocol;
 using RaspberryPi;
@@ -150,17 +151,30 @@ namespace MQTTService
                     if (payloadBytes.Length == 4)
                     {
                         float receivedValue = BitConverter.ToSingle(payloadBytes, 0);
-                        Console.WriteLine($"Received float value {receivedValue} on topic: {e.ApplicationMessage.Topic}");
+                        //Console.WriteLine($"Received float value {receivedValue} on topic: {e.ApplicationMessage.Topic}");
+            
                         // Adding random values to simulate sensor behaviour
                         receivedValue += SimulateSensorBehaviour(topic.Split('/')[0]);
-                        //Console.WriteLine("Received value after adding random value: " + receivedValue);
                         
-                        if
+                        if (StatsQueue.IsQueueNotFull())
                         {
-                            Console.WriteLine(receivedValue);
+                            StatsQueue.AddValue(receivedValue);
+                            
+                        }
+                        else if(!StatsQueue.IsValueAnOutlier(receivedValue, 1.5))
+                        {Console.WriteLine($"Mean is:{StatsQueue.Mean}");
+                            Console.WriteLine($"Variance is: {StatsQueue.Variance}");
+                            Console.WriteLine($"Z-Score is:{StatsQueue.IsValueAnOutlierDouble(receivedValue)}");
                             await DB.NewInfluxDBEntry(receivedValue, 
                                 topic.Split('/')[0], 
-                                topic.Split('/')[1], topic.Split('/')[2]);
+                                topic.Split('/')[1], 
+                                topic.Split('/')[2]);
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Mean is:{StatsQueue.Mean}");
+                        Console.WriteLine($"Variance is: {StatsQueue.Variance}");
+                        Console.WriteLine($"Z-Score is:{StatsQueue.IsValueAnOutlierDouble(receivedValue)}");
                         }
                     }
                     else
@@ -169,6 +183,7 @@ namespace MQTTService
                     }
                 }
             };
+
         }
         
         // Initialize the moving window with the first 10 values or upload to InfluxDB if it is not an outlier
