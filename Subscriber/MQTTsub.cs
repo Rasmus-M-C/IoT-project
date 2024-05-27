@@ -19,7 +19,7 @@ namespace Subscriber
         private int queueCapacity;
         private Dictionary<string, StatsQueue> topicStatsQueues;
 
-        public MQTTsub(string brokerIp = "0b5f2477a4fb4160bf4cabc96ee41a39.s1.eu.hivemq.cloud", int capacity = 10)
+        public MQTTsub(string brokerIp = "0b5f2477a4fb4160bf4cabc96ee41a39.s1.eu.hivemq.cloud", int capacity =10)
         {
             Console.WriteLine(brokerIp);
             BrokerIP = brokerIp;
@@ -140,19 +140,18 @@ namespace Subscriber
                         
 
                         var statsQueue = topicStatsQueues[topic];
-
+                        var adjustedValue = SimulateSensorBehaviour(topic.Split('/')[0]) + receivedValue;
                         if (statsQueue.IsQueueNotFull())
                         {
-                            //var adjustedValue = SimulateSensorBehaviour(topic.Split('/')[0]) + receivedValue;
-                            statsQueue.AddValue(receivedValue);
+                            statsQueue.AddValue(adjustedValue);
                         }
-                        else if (!statsQueue.IsValueAnOutlier(receivedValue, 32))
+                       else if (!statsQueue.IsValueAnOutlier(adjustedValue, 3))
                         {   
-                            statsQueue.AddValue(receivedValue);
+                            statsQueue.AddValue(adjustedValue);
 
-                            Console.WriteLine($"Added value {receivedValue} to {topic}. M:{statsQueue.Mean}, V:{statsQueue.Variance}, STD:{statsQueue.StandardDeviation}");
+                            Console.WriteLine($"Added value {adjustedValue} to {topic}. M:{statsQueue.Mean}, V:{statsQueue.Variance}, STD:{statsQueue.StandardDeviation}, Z-score: {statsQueue.IsValueAnOutlierDouble(receivedValue)}");
                             
-                            await DB.NewInfluxDBEntry(receivedValue,
+                            await DB.NewInfluxDBEntry(adjustedValue,
                                 topic.Split('/')[0],
                                 topic.Split('/')[1],
                                 topic.Split('/')[2]);
@@ -162,6 +161,7 @@ namespace Subscriber
                             
                             Console.WriteLine($"Z-Score is: {statsQueue.IsValueAnOutlierDouble(receivedValue)} for {topic}");
                             Console.WriteLine($"Variance is: {statsQueue.Variance}");
+                            Console.WriteLine(adjustedValue);
                             
                         }
                     }
