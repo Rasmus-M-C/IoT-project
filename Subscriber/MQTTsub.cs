@@ -4,31 +4,31 @@ using System.Threading;
 using MQTTnet;
 using MQTTnet.Client;
 using System.Threading.Tasks;
-using Apache.Arrow.Memory;
-using MQTTnet.Packets;
 using MQTTnet.Protocol;
 using RaspberryPi;
-
-using InfluxDB3.Client;
 using Subscriber;
 
-namespace MQTTService
+
+
+namespace Subscriber
 {
     public class MQTTsub
     {
         public IMqttClient Client { get; set; }
         private string BrokerIP { get; set; }
-        public StatsQueue StatsQueue { get; set; }
+        private int queueCapacity;
+        private Dictionary<string, StatsQueue> topicStatsQueues;
+
         public MQTTsub(string brokerIp = "0b5f2477a4fb4160bf4cabc96ee41a39.s1.eu.hivemq.cloud", int capacity = 10)
         {
             Console.WriteLine(brokerIp);
             BrokerIP = brokerIp;
             var mqttFactory = new MqttFactory();
             Client = mqttFactory.CreateMqttClient();
-            StatsQueue = new StatsQueue(capacity);
+            queueCapacity = capacity;
+            topicStatsQueues = new Dictionary<string, StatsQueue>();
         }
 
-        
         // Method to calculate Median of an unsorted array
         // Always even number as it has 10 elements
         private float Median(float[] a, int n)
@@ -39,18 +39,8 @@ namespace MQTTService
             // First we sort
             // the array
             Array.Sort(a);
- 
+
             return (float)(a[(10 - 1) / 2] + a[n / 2]) / 2.0f;
-        }
-        
-        private float Mean(float[] a, int n)
-        {
-            float sum = 0;
-            for (int i = 0; i < n; i++)
-            {
-                sum += a[i];
-            }
-            return (float)(sum / n);
         }
 
         public async Task ConnectAsync()
@@ -74,6 +64,12 @@ namespace MQTTService
 
             await Client.SubscribeAsync(topicFilter);
             Console.WriteLine($"Subscribed to {topic}");
+
+            // Initialize a StatsQueue for each topic
+            if (!topicStatsQueues.ContainsKey(topic))
+            {
+                topicStatsQueues[topic] = new StatsQueue(queueCapacity);
+            }
         }
 
         // Method to start a publisher on a separate thread
@@ -96,6 +92,7 @@ namespace MQTTService
                 await Task.Delay(interval * 5000);
             }
         }
+
         public async Task PublishMessageAsync(float payload, string topic)
         {
             byte[] payloadBytes = BitConverter.GetBytes(payload);
@@ -104,29 +101,12 @@ namespace MQTTService
                 .WithPayload(payloadBytes)
                 .WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce)
                 .Build();
-            /* Uncomment the following block to publish messages every 2 seconds for test.
-            while (true) {
-                Thread.Sleep(2000);
-                await Client.PublishAsync(message);
-                Console.WriteLine($"Published message to {topic}: {payload}");
-            }*/
             await Client.PublishAsync(message);
             Console.WriteLine($"Published message to {topic}: {payload}");
         }
+
         
-        
-        // Setting the 10 first elements coming from the sensor as the initial window
-        private float InitialMedian(float[] window)
-        {
-            float Median = 0;
-            for (int i = 0; i < 10; i++)
-            {
-                window[i] = i;
-            }
-            Median = this.Median(window, 10);
-            return Median;
-        }
-        
+
         public async Task Subscribe(string topic, Subscriber.InfluxDB DB)
         {
             var topicFilter = new MqttTopicFilterBuilder()
@@ -137,9 +117,12 @@ namespace MQTTService
             await Client.SubscribeAsync(topicFilter);
             Console.WriteLine($"Subscribed to {topic}");
 
-            int counter = 0;
-            float[] window = new float[10];
-            
+            // Initialize a StatsQueue for each topic
+            if (!topicStatsQueues.ContainsKey(topic))
+            {
+                topicStatsQueues[topic] = new StatsQueue(queueCapacity);
+            }
+
             Client.ApplicationMessageReceivedAsync += async e =>
             {
                 // Check if the received message's topic matches the subscribed topic
@@ -152,29 +135,34 @@ namespace MQTTService
                     {
                         float receivedValue = BitConverter.ToSingle(payloadBytes, 0);
                         //Console.WriteLine($"Received float value {receivedValue} on topic: {e.ApplicationMessage.Topic}");
-            
+
                         // Adding random values to simulate sensor behaviour
-                        receivedValue += SimulateSensorBehaviour(topic.Split('/')[0]);
                         
-                        if (StatsQueue.IsQueueNotFull())
+
+                        var statsQueue = topicStatsQueues[topic];
+
+                        if (statsQueue.IsQueueNotFull())
                         {
-                            StatsQueue.AddValue(receivedValue);
-                            
+                            //var adjustedValue = SimulateSensorBehaviour(topic.Split('/')[0]) + receivedValue;
+                            statsQueue.AddValue(receivedValue);
                         }
-                        else if(!StatsQueue.IsValueAnOutlier(receivedValue, 1.5))
-                        {Console.WriteLine($"Mean is:{StatsQueue.Mean}");
-                            Console.WriteLine($"Variance is: {StatsQueue.Variance}");
-                            Console.WriteLine($"Z-Score is:{StatsQueue.IsValueAnOutlierDouble(receivedValue)}");
-                            await DB.NewInfluxDBEntry(receivedValue, 
-                                topic.Split('/')[0], 
-                                topic.Split('/')[1], 
+                        else if (!statsQueue.IsValueAnOutlier(receivedValue, 32))
+                        {   
+                            statsQueue.AddValue(receivedValue);
+
+                            Console.WriteLine($"Added value {receivedValue} to {topic}. M:{statsQueue.Mean}, V:{statsQueue.Variance}, STD:{statsQueue.StandardDeviation}");
+                            
+                            await DB.NewInfluxDBEntry(receivedValue,
+                                topic.Split('/')[0],
+                                topic.Split('/')[1],
                                 topic.Split('/')[2]);
                         }
                         else
                         {
-                            Console.WriteLine($"Mean is:{StatsQueue.Mean}");
-                        Console.WriteLine($"Variance is: {StatsQueue.Variance}");
-                        Console.WriteLine($"Z-Score is:{StatsQueue.IsValueAnOutlierDouble(receivedValue)}");
+                            
+                            Console.WriteLine($"Z-Score is: {statsQueue.IsValueAnOutlierDouble(receivedValue)} for {topic}");
+                            Console.WriteLine($"Variance is: {statsQueue.Variance}");
+                            
                         }
                     }
                     else
@@ -183,60 +171,7 @@ namespace MQTTService
                     }
                 }
             };
-
         }
-        
-        // Initialize the moving window with the first 10 values or upload to InfluxDB if it is not an outlier
-
-        private bool OutlierDetection(Func<float[], int, float> func,float value, float[] window, string type, int counter)
-        {
-            // Define threshold for outlier detection based on the measurement type
-            float threshold = 2f; // Default threshold
-            switch (type.ToLower())
-            {
-                case "temperature":
-                    threshold = 2f; // Set threshold for temperature
-                    break;
-                case "humidity":
-                    threshold = 5f; // Set threshold for humidity
-                    break;
-                case "pressure":
-                    threshold = 500f; // Set threshold for pressure
-                    break;
-                // Add more cases for other measurement types if needed
-                default:
-                    // Handle unknown measurement types, or set a default threshold
-                    Console.WriteLine("Unknown measurement type. Using default threshold.");
-                    break;
-            }
-            float medianOrmean = 0;
-            // If counter is equal to 10
-            if (counter == 10)
-            {
-                medianOrmean = this.Median(window, 10);
-            }
-            else
-            {
-                // Calculate the Median or Mean of the window
-                medianOrmean = func(window, 10);
-            }
-            // Check if the value is an outlier
-            if (medianOrmean - threshold < value && value < medianOrmean + threshold)
-            {
-                // Update the moving window with the new value by removing the oldest element and adding the element
-                for (int i = 0; i < 9; i++)
-                {
-                    window[i] = window[i + 1];
-                }
-
-                window[9] = value;
-                return false;
-            }
-
-            // If the value is an outlier, return true
-            return true;
-        }
-        
         private float SimulateSensorBehaviour(string type)
         {
             Random random = new Random();
